@@ -15,3 +15,6 @@ Description: Researchers doing a mixed-methods analysis (nested analysis) can
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
+Imports: 
+    dplyr,
+    ggplot2
