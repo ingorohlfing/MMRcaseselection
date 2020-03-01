@@ -11,7 +11,8 @@ most_typical(lmobject)
 }
 \value{
 The most typical case having the smallest absolute
-residual of all cases.
+residual of all cases. Originally proposed by Seawright and Gerring
+\url{https://doi.org/10.1177/1065912907313077}.
 }
 \description{
 Most typical case
