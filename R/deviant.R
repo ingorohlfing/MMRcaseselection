@@ -43,3 +43,24 @@ most_overpredicted <- function(lmobject){
     stop('Input into function is not of class "lm"')
   }
 }
+
+#' Most underpredicted case
+#'
+#' @param lmobject Object generated with \code{\link[stats]{lm}}
+#'
+#' @return The most underpredicted case with the largest positive residual
+#' (the most positive residual).
+#' @importFrom stats lm residuals
+#' @examples
+#' df <- lm(mpg ~ disp + wt, data = mtcars)
+#' most_underpredicted(df)
+#' @export
+most_underpredicted <- function(lmobject){
+  if(class(lmobject) == "lm"){
+    resid <- sort(residuals(lmobject))
+    return(resid[length(resid)])
+  }
+  else{
+    stop('Input into function is not of class "lm"')
+  }
+}
