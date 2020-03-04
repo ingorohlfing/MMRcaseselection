@@ -20,4 +20,5 @@ Most typical case
 \examples{
 df <- lm(mpg ~ disp + wt, data = mtcars)
 most_typical(df)
+
 }
