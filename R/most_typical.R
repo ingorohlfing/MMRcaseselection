@@ -9,9 +9,11 @@
 #' \url{https://doi.org/10.1177/1065912907313077}.
 #'
 #' @importFrom stats lm residuals
+#'
 #' @examples
 #' df <- lm(mpg ~ disp + wt, data = mtcars)
 #' most_typical(df)
+#'
 #' @export
 most_typical <- function(lmobject){
   if(class(lmobject) == "lm"){
