@@ -19,15 +19,20 @@
 #' @export
 predint <- function(lmobject, piwidth = 0.95){
   if(class(lmobject) == "lm"){
-    temp <- as.data.frame(suppressWarnings(predict.lm(df,
-                                                      interval = "prediction",
-                                                      level = piwidth)))
-    outcome <- lmobject$model[, 1]
-    comb <- cbind(temp, outcome)
-    comb$status <- ifelse(comb$outcome < comb$lwr |
-                            comb$outcome > comb$upr,
-                          "deviant", "typical")
-    return(comb)
+    if(piwidth >= 0 & piwidth <= 1){
+      temp <- as.data.frame(suppressWarnings(predict.lm(df,
+                                                        interval = "prediction",
+                                                        level = piwidth)))
+      outcome <- lmobject$model[, 1]
+      comb <- cbind(temp, outcome)
+      comb$status <- ifelse(comb$outcome < comb$lwr |
+                              comb$outcome > comb$upr,
+                            "deviant", "typical")
+      return(comb)
+    }
+    else{
+      stop('Prediction interval needs to be between 0 and 1')
+    }
   }
   else{
     stop('Input into function is not of class "lm"')
