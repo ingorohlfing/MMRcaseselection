@@ -6,13 +6,10 @@
 #'
 #' @return The most deviant case having the largest absolute
 #' residual of all cases. Originally proposed by
-#' \insertCite{Seawright2008PRQ;textual}{MMRcaseselection}.
+#' Originally proposed by Seawright and Gerring
+#' (\href{https://journals.sagepub.com/doi/10.1177/1065912907313077}{2008}).
 #'
 #' @importFrom stats lm residuals
-#' @importFrom Rdpack reprompt
-#'
-#' @references
-#' \insertAllCited{}
 #'
 #' @examples
 #' df <- lm(mpg ~ disp + wt, data = mtcars)

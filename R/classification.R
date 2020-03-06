@@ -9,7 +9,7 @@
 #' @return A dataframe with observed outcome, fitted outcome values,
 #' upper and lower bound of the prediction interval and classification
 #' of cases as typical or deviant. Originally proposed by Rohlfing and
-#' Starke (\url{https://doi.org/10.1111/spsr.12052}).
+#' Starke (\href{https://doi.org/10.1111/spsr.12052}{2013}).
 #'
 #' @importFrom stats lm residuals
 #'

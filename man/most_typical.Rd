@@ -11,8 +11,8 @@ most_typical(lmobject)
 }
 \value{
 The most typical case having the smallest absolute
-residual of all cases. Originally proposed by
-\insertCite{Seawright2008PRQ;textual}{MMRcaseselection}.
+residual of all cases. Originally proposed by Seawright and Gerring
+(\href{https://journals.sagepub.com/doi/10.1177/1065912907313077}{2008}).
 }
 \description{
 Most typical case
@@ -21,7 +21,4 @@ Most typical case
 df <- lm(mpg ~ disp + wt, data = mtcars)
 most_typical(df)
 
-}
-\references{
-\insertAllCited{}
 }
