@@ -11,8 +11,8 @@ most_deviant(lmobject)
 }
 \value{
 The most deviant case having the largest absolute
-residual of all cases. Originally proposed by Seawright and Gerring
-\url{https://doi.org/10.1177/1065912907313077}.
+residual of all cases. Originally proposed by
+\insertCite{Seawright2008PRQ;textual}{MMRcaseselection}.
 }
 \description{
 Most deviant case
@@ -20,4 +20,7 @@ Most deviant case
 \examples{
 df <- lm(mpg ~ disp + wt, data = mtcars)
 most_deviant(df)
+}
+\references{
+\insertAllCited{}
 }
