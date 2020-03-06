@@ -18,5 +18,7 @@ LazyData: true
 Imports: 
     dplyr,
     ggplot2,
-    stats
+    stats,
+    Rdpack
+RdMacros: Rdpack
 RoxygenNote: 7.0.2
