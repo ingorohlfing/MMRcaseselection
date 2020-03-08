@@ -4,6 +4,7 @@
 #'
 #' Identification of the most deviant case (= worst predicted case),
 #' given regression estimates.
+#'
 #' Proposed by: Seawright, Jason and John Gerring (2008):
 #' Case Selection Techniques in Case Study Research: A Menu of
 #' Qualitative and Quantitative Options. *Political Research Quarterly*

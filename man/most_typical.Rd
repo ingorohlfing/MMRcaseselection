@@ -16,6 +16,8 @@ residual of all cases.
 \description{
 Identification of the most typical case (= best predicted case),
 given regression estimates.
+}
+\details{
 Proposed by: Seawright, Jason and John Gerring (2008):
 Case Selection Techniques in Case Study Research: A Menu of
 Qualitative and Quantitative Options. *Political Research Quarterly*

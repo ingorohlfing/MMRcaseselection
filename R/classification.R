@@ -34,11 +34,15 @@
 predint <- function(lmobject, piwidth = 0.95){
   if(class(lmobject) == "lm"){
     if(piwidth >= 0 & piwidth <= 1){
+      # calculating prediction interval
       temp <- as.data.frame(suppressWarnings(predict.lm(df,
                                                         interval = "prediction",
                                                         level = piwidth)))
+      # extracting outcome values
       outcome <- lmobject$model[, 1]
+      # merging outcome values into dataframe
       comb <- cbind(temp, outcome)
+      # classification of cases
       comb$status <- ifelse(comb$outcome < comb$lwr |
                               comb$outcome > comb$upr,
                             "deviant", "typical")
@@ -52,3 +56,55 @@ predint <- function(lmobject, piwidth = 0.95){
     stop('Input into function is not of class "lm"')
   }
 }
+
+#' Classification of cases as typical and deviant using the standard
+#' deviation of the residuals.
+#'
+#' The share of the standard deviation of the residuals is used to
+#' designate cases as typical or deviant.
+#'
+#' Proposed by Lieberman, Evan S. (2005): Nested Analysis as a Mixed-Method
+#' Strategy for Comparative Research. *American Political Science Review*
+#' 99 (3): 435-452. \url{https://doi.org/10.1017/S0003055405051762}.
+#'
+#' @param lmobject Object generated with \code{\link[stats]{lm}}
+#' @param stdshare Share of standard deviation of residuals distinguishing
+#' between typical and deviant cases.
+#'
+#' @return A dataframe with the observed outcome, fitted outcome,
+#' residual standard deviation and classification of cases as typical
+#' or deviant.
+#'
+#' @importFrom stats lm residuals
+#'
+#' @examples
+#' df <- lm(mpg ~ disp + wt, data = mtcars)
+#' resid_std(df, stdshare = 1)
+#'
+#' @export
+resid_std <- function(lmobject, stdshare = 1){
+  if(class(lmobject) == "lm"){
+    if(stdshare >= 0){
+      # calculating standard deviation of residuals
+      tempsd <- as.data.frame(suppressWarnings(predict.lm(df, se.fit = T)))
+      # removing irrelevant columns
+      tempsd <- tempsd[, c("fit", "residual.scale")]
+      # extracing outcome values
+      outcome <- df$model[, 1]
+      # merging outcome values into dataframe
+      comb <- cbind(tempsd, outcome)
+      # classification of cases
+      comb$status <- ifelse(comb$outcome < comb$fit-stdshare*comb$residual.scale|
+                              comb$outcome > comb$fit+stdshare*comb$residual.scale,
+                            "deviant", "typical")
+      return(comb)
+      }
+    else{
+      stop('Standard deviation should not be negative')
+    }
+  }
+  else{
+    stop('Input into function is not of class "lm"')
+  }
+}
+
