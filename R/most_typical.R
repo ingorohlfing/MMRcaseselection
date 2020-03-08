@@ -1,12 +1,19 @@
 
 
-#' Most typical case
+#' Identification of the most typical case
+#'
+#' Identification of the most typical case (= best predicted case),
+#' given regression estimates.
+#' Proposed by: Seawright, Jason and John Gerring (2008):
+#' Case Selection Techniques in Case Study Research: A Menu of
+#' Qualitative and Quantitative Options. *Political Research Quarterly*
+#' 61 (2): 294-308.
+#' (\url{https://journals.sagepub.com/doi/pdf/10.1177/1065912907313077})
 #'
 #' @param lmobject Object generated with \code{\link[stats]{lm}}
 #'
 #' @return The most typical case having the smallest absolute
-#' residual of all cases. Originally proposed by Seawright and Gerring
-#' (\href{https://journals.sagepub.com/doi/10.1177/1065912907313077}{2008}).
+#' residual of all cases.
 #'
 #' @importFrom stats lm residuals
 #'
@@ -24,3 +31,4 @@ most_typical <- function(lmobject){
     stop('Input into function is not of class "lm"')
   }
 }
+

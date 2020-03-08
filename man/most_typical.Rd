@@ -2,7 +2,7 @@
 % Please edit documentation in R/most_typical.R
 \name{most_typical}
 \alias{most_typical}
-\title{Most typical case}
+\title{Identification of the most typical case}
 \usage{
 most_typical(lmobject)
 }
@@ -11,11 +11,16 @@ most_typical(lmobject)
 }
 \value{
 The most typical case having the smallest absolute
-residual of all cases. Originally proposed by Seawright and Gerring
-(\href{https://journals.sagepub.com/doi/10.1177/1065912907313077}{2008}).
+residual of all cases.
 }
 \description{
-Most typical case
+Identification of the most typical case (= best predicted case),
+given regression estimates.
+Proposed by: Seawright, Jason and John Gerring (2008):
+Case Selection Techniques in Case Study Research: A Menu of
+Qualitative and Quantitative Options. *Political Research Quarterly*
+61 (2): 294-308.
+(\url{https://journals.sagepub.com/doi/pdf/10.1177/1065912907313077})
 }
 \examples{
 df <- lm(mpg ~ disp + wt, data = mtcars)
