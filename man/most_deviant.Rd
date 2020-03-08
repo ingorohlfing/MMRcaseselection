@@ -2,7 +2,7 @@
 % Please edit documentation in R/deviant.R
 \name{most_deviant}
 \alias{most_deviant}
-\title{Most deviant case}
+\title{Identification of the most deviant case}
 \usage{
 most_deviant(lmobject)
 }
@@ -11,12 +11,16 @@ most_deviant(lmobject)
 }
 \value{
 The most deviant case having the largest absolute
-residual of all cases. Originally proposed by
-Originally proposed by Seawright and Gerring
-(\href{https://journals.sagepub.com/doi/10.1177/1065912907313077}{2008}).
+residual of all cases.
 }
 \description{
-Most deviant case
+Identification of the most deviant case (= worst predicted case),
+given regression estimates.
+Proposed by: Seawright, Jason and John Gerring (2008):
+Case Selection Techniques in Case Study Research: A Menu of
+Qualitative and Quantitative Options. *Political Research Quarterly*
+61 (2): 294-308.
+(\url{https://journals.sagepub.com/doi/pdf/10.1177/1065912907313077})
 }
 \examples{
 df <- lm(mpg ~ disp + wt, data = mtcars)

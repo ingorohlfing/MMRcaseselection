@@ -1,13 +1,19 @@
 
 
-#' Most deviant case
+#' Identification of the most deviant case
+#'
+#' Identification of the most deviant case (= worst predicted case),
+#' given regression estimates.
+#' Proposed by: Seawright, Jason and John Gerring (2008):
+#' Case Selection Techniques in Case Study Research: A Menu of
+#' Qualitative and Quantitative Options. *Political Research Quarterly*
+#' 61 (2): 294-308.
+#' (\url{https://journals.sagepub.com/doi/pdf/10.1177/1065912907313077})
 #'
 #' @param lmobject Object generated with \code{\link[stats]{lm}}
 #'
 #' @return The most deviant case having the largest absolute
-#' residual of all cases. Originally proposed by
-#' Originally proposed by Seawright and Gerring
-#' (\href{https://journals.sagepub.com/doi/10.1177/1065912907313077}{2008}).
+#' residual of all cases.
 #'
 #' @importFrom stats lm residuals
 #'
@@ -25,7 +31,12 @@ most_deviant <- function(lmobject){
   }
 }
 
-#' Most overpredicted case
+#' Identification of the most overpredicted case
+#'
+#' Identifies the case with the largest negative difference between the observed
+#' value and the predicted value on the outcome. Depending on the research
+#' question, there might be a specific interest in the case for which the
+#' model performs worst and yields a larger predicted value.
 #'
 #' @param lmobject Object generated with \code{\link[stats]{lm}}
 #'
@@ -46,7 +57,12 @@ most_overpredicted <- function(lmobject){
   }
 }
 
-#' Most underpredicted case
+#' Identification of the most underpredicted case
+#'
+#' Identifies the case with the largest positive difference between the observed
+#' value and the predicted value on the outcome. Depending on the research
+#' question, there might be a specific interest in the case for which the
+#' model performs worst and yields a smaller predicted value.
 #'
 #' @param lmobject Object generated with \code{\link[stats]{lm}}
 #'

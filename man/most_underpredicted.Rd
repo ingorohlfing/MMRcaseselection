@@ -2,7 +2,7 @@
 % Please edit documentation in R/deviant.R
 \name{most_underpredicted}
 \alias{most_underpredicted}
-\title{Most underpredicted case}
+\title{Identification of the most underpredicted case}
 \usage{
 most_underpredicted(lmobject)
 }
@@ -14,7 +14,10 @@ The most underpredicted case with the largest positive residual
 (the most positive residual).
 }
 \description{
-Most underpredicted case
+Identifies the case with the largest positive difference between the observed
+value and the predicted value on the outcome. Depending on the research
+question, there might be a specific interest in the case for which the
+model performs worst and yields a smaller predicted value.
 }
 \examples{
 df <- lm(mpg ~ disp + wt, data = mtcars)

@@ -2,7 +2,7 @@
 % Please edit documentation in R/deviant.R
 \name{most_overpredicted}
 \alias{most_overpredicted}
-\title{Most overpredicted case}
+\title{Identification of the most overpredicted case}
 \usage{
 most_overpredicted(lmobject)
 }
@@ -14,7 +14,10 @@ The most overpredicted case with the largest negative residual
 (the most negative residual).
 }
 \description{
-Most overpredicted case
+Identifies the case with the largest negative difference between the observed
+value and the predicted value on the outcome. Depending on the research
+question, there might be a specific interest in the case for which the
+model performs worst and yields a larger predicted value.
 }
 \examples{
 df <- lm(mpg ~ disp + wt, data = mtcars)
