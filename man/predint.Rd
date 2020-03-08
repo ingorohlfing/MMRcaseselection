@@ -13,14 +13,25 @@ predint(lmobject, piwidth = 0.95)
 \item{piwidth}{Width of the prediction interval.}
 }
 \value{
-A dataframe with observed outcome, fitted outcome values,
-upper and lower bound of the prediction interval and classification
-of cases as typical or deviant. Originally proposed by Rohlfing and
-Starke (\href{https://doi.org/10.1111/spsr.12052}{2013}).
+A dataframe with the observed outcome, fitted outcome,
+upper and lower bound of the % prediction interval and classification
+of cases as typical or deviant.
 }
 \description{
-Classification of cases as typical and deviant using the prediction
-interval.
+Case are designated as typical (= well predicted) and deviant
+(= badly predicted) based on the prediction interal. The x\% prediction
+interval represents the range of outcome values that we expect to include
+x\% of outcome values in future samples. For example, a 95\% prediction
+interval ranging from 0-5 conveys that 95\% of future outcome values of
+similar cases will be in the range of 0-5. If the observed outcome is
+inside of the interval, the case counts as typical and as deviant
+otherwise.
+}
+\details{
+Proposed by Rohlfing, Ingo and Peter Starke (2013):
+Building on Solid Ground: Robust Case Selection in Multi-Method Research.
+*Swiss Political Science Review* 19 (4): 492-512.
+(\url{https://doi.org/10.1111/spsr.12052})
 }
 \examples{
 df <- lm(mpg ~ disp + wt, data = mtcars)
