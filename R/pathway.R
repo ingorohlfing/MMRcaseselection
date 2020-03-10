@@ -7,6 +7,13 @@
 #'
 #' @return A dataframe with pathway case residuals.
 #'
+#' @importFrom stats lm residuals
+#'
+#' @examples
+#' df_full <- lm(mpg ~ disp + wt, data = mtcars)
+#' df_reduced <- lm(mpg ~ wt, data = mtcars)
+#' pathway(df_full, df_reduced)
+#'
 #' @export
 pathway <- function(full.model, reduced.model){
   full.resid <- residuals(full.model) # full model
@@ -16,8 +23,3 @@ pathway <- function(full.model, reduced.model){
   comb <- comb[order(pathway.resid), ] # descending order
   return(comb)
 }
-
-#' @examples
-#' df_full <- lm(mpg ~ disp + wt, data = mtcars)
-#' df_reduced <- lm(mpg ~ wt, data = mtcars)
-#' pathway(df_full, df_reduced)
