@@ -1,0 +1,23 @@
+
+
+#' Pathway case
+#'
+#' @param full.model Full model including covariate of interest
+#' @param reduced.model Reduced model excluding covariate of interest
+#'
+#' @return A dataframe with pathway case residuals.
+#'
+#' @export
+pathway <- function(full.model, reduced.model){
+  full.resid <- residuals(full.model) # full model
+  reduced.resid <- residuals(reduced.model) # reduced model
+  pathway.resid <- full.resid-reduced.resid # difference
+  comb <- cbind(full.model$model, full.resid, reduced.resid, pathway.resid)
+  comb <- comb[order(pathway.resid), ] # descending order
+  return(comb)
+}
+
+#' @examples
+#' df_full <- lm(mpg ~ disp + wt, data = mtcars)
+#' df_reduced <- lm(mpg ~ wt, data = mtcars)
+#' pathway(df_full, df_reduced)
