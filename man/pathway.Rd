@@ -17,3 +17,9 @@ A dataframe with pathway case residuals.
 \description{
 Pathway case
 }
+\examples{
+df_full <- lm(mpg ~ disp + wt, data = mtcars)
+df_reduced <- lm(mpg ~ wt, data = mtcars)
+pathway(df_full, df_reduced)
+
+}
