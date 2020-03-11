@@ -20,9 +20,13 @@ pathway <- function(full.model, reduced.model){
     if(class(reduced.model) == "lm"){
       full.resid <- residuals(full.model) # full model
       reduced.resid <- residuals(reduced.model) # reduced model
-      pathway.resid <- full.resid-reduced.resid # difference
-      comb <- cbind(full.model$model, full.resid, reduced.resid, pathway.resid)
-      comb <- comb[order(pathway.resid), ] # descending order
+      pathway <- full.resid-reduced.resid # difference
+      pathway.abs <- ifelse(reduced.resid > full.resid,
+                            abs(reduced.resid-full.resid),
+                            NA)
+      comb <- cbind(full.model$model, full.resid, reduced.resid,
+                    pathway, pathway.abs)
+      #comb <- comb[order(pathway.resid), ] # descending order
       return(comb)
     }
     else{
