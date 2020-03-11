@@ -16,10 +16,20 @@
 #'
 #' @export
 pathway <- function(full.model, reduced.model){
-  full.resid <- residuals(full.model) # full model
-  reduced.resid <- residuals(reduced.model) # reduced model
-  pathway.resid <- full.resid-reduced.resid # difference
-  comb <- cbind(full.model$model, full.resid, reduced.resid, pathway.resid)
-  comb <- comb[order(pathway.resid), ] # descending order
-  return(comb)
+  if(class(full.model) == "lm"){
+    if(class(reduced.model) == "lm"){
+      full.resid <- residuals(full.model) # full model
+      reduced.resid <- residuals(reduced.model) # reduced model
+      pathway.resid <- full.resid-reduced.resid # difference
+      comb <- cbind(full.model$model, full.resid, reduced.resid, pathway.resid)
+      comb <- comb[order(pathway.resid), ] # descending order
+      return(comb)
+    }
+    else{
+      stop('Reduced model object is not of class "lm"')
+    }
+  }
+  else{
+    (stop('Full model object is not of class "lm"'))
+  }
 }
