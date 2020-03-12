@@ -44,7 +44,6 @@ pathway <- function(full.model, reduced.model){
                             NA)
       comb <- cbind(full.model$model, full.resid, reduced.resid,
                     pathway.wb, pathway.g)
-      #comb <- comb[order(pathway.resid), ] # descending order
       return(comb)
     }
     else{
@@ -54,4 +53,34 @@ pathway <- function(full.model, reduced.model){
   else{
     (stop('Full model object is not of class "lm"'))
   }
+}
+
+#' Plot of residuals against pathway variable
+#'
+#' @param full.model Full model including covariate of interest
+#' @param reduced.model Reduced model excluding covariate of interest
+#' @param pathway.var Variable that is dropped from full model
+#' @param pathway.type Type of pathway residual. \code{pathway.wb} are
+#' residuals proposed by Weller and Barnes. \code{pathway.g} are residuals
+#' as calculated by Gerring.
+#'
+#' @return A plot of the chosen residuals against the pathway variable
+#' created with \code{\link{ggplot2}}
+#'
+#' @examples
+#' #' df_full <- lm(mpg ~ disp + wt, data = mtcars)
+#' df_reduced <- lm(mpg ~ wt, data = mtcars)
+#' pathway_xvr(full.model, reduced.model, pathway.var = "disp",
+#' pathway.type = "pathway.wb")
+#'
+#' @export
+pathway_xvr <- function(full.model, reduced.model,
+                        pathway.var = "variable", pathway.type = "residual"){
+  pwdf <- pathway(df_full, df_reduced)
+  pwplot <- ggplot2::ggplot() +
+    geom_point(data = pwdf, mapping = aes_string(x = pathway.var, y = pathway.type)) +
+    geom_hline(yintercept = 0, linetype = 5) +
+    scale_y_continuous("Residuals") +
+    theme_classic() -> pwplot
+  return(pwplot)
 }
