@@ -38,12 +38,12 @@ pathway <- function(full.model, reduced.model){
     if(class(reduced.model) == "lm"){
       full.resid <- residuals(full.model) # full model
       reduced.resid <- residuals(reduced.model) # reduced model
-      pathway <- full.resid-reduced.resid # difference
-      pathway.abs <- ifelse(reduced.resid > full.resid,
+      pathway.wb <- abs(reduced.resid)-abs(full.resid) # difference
+      pathway.g <- ifelse(reduced.resid > full.resid,
                             abs(reduced.resid-full.resid),
                             NA)
       comb <- cbind(full.model$model, full.resid, reduced.resid,
-                    pathway, pathway.abs)
+                    pathway.wb, pathway.g)
       #comb <- comb[order(pathway.resid), ] # descending order
       return(comb)
     }
