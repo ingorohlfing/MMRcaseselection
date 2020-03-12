@@ -18,7 +18,8 @@ License: GPL-3
 Encoding: UTF-8
 LazyData: true
 Imports: 
-    stats
+    stats,
+    ggplot2
 RoxygenNote: 7.0.2
 URL: https://github.com/ingorohlfing/MMRcaseselection
 BugReports: https://github.com/ingorohlfing/MMRcaseselection
