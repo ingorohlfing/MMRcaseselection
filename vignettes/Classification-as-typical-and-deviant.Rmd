@@ -1,0 +1,30 @@
+---
+title: "Classification-as-typical-and-deviant"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Classification-as-typical-and-deviant}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(MMRcaseselection)
+```
+
+The classification (designation, assignment) of cases as typical and deviant (or another) type needs to be distinguished from the actual choice of cases belonging to a specific type. The package offers two ways of classifying cases. First, one can designate cases using an % prediction interval or the standard deviation of the residuals. Both classification techniques require an `lm` object as input. 
+
+The approach using the prediction interval additionally requires the specification of the width of the interval. The % prediction interval represents the range of outcome values within which 95% of future outcome values are expected to fall. Following Rohlfing and Starke, a case is designated as typical if the observed outcome value is inside the interval and as deviant otherwise. Here is a simple example using the in-built `mtcars` dataset and a 90% predidction interval. 
+
+The output of the function is a dataframe with the observed and fitted outcome value, the upper and lower bound of the prediction interval and the case status based on the fitted value and the prediction interval.
+```{r}
+df <- lm(mpg ~ disp + wt, data = mtcars)
+predint(df, piwidth = 0.9)
+```
+

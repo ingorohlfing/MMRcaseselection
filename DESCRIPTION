@@ -23,3 +23,7 @@ Imports:
 RoxygenNote: 7.0.2
 URL: https://github.com/ingorohlfing/MMRcaseselection
 BugReports: https://github.com/ingorohlfing/MMRcaseselection
+Suggests: 
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr
