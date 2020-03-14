@@ -8,14 +8,14 @@
 #' mechanisms.
 #'
 #' The plain difference follows the approach developed by Weller and Barnes
-#' (Weller, Nicholas and Jeb Barnes (2014): *Finding Pathways: Mixed-Method
-#' Research for Studying Causal Mechanisms.* Cambridge: Cambridge University
+#' (Weller, Nicholas and Jeb Barnes (2014): \emph{Finding Pathways: Mixed-Method
+#' Research for Studying Causal Mechanisms.} Cambridge: Cambridge University
 #' Press. \url{https://doi.org/10.1017/CBO9781139644501}).
 #'
 #' The calculation of the absolute residual if the reduced-model
 #' residual is larger than the full-model residual follows the original
 #' proposal by Gerring (Gerring, John (2007): Is There a (Viable)
-#' Crucial-Case Method? *Comparative Political Studies* 40 (3): 231-253.
+#' Crucial-Case Method? \emph{Comparative Political Studies} 40 (3): 231-253.
 #' \url{https://journals.sagepub.com/doi/10.1177/0010414006290784})
 #'
 #' @param full.model Full model including covariate of interest
