@@ -20,7 +20,7 @@ given regression estimates.
 \details{
 Proposed by: Seawright, Jason and John Gerring (2008):
 Case Selection Techniques in Case Study Research: A Menu of
-Qualitative and Quantitative Options. *Political Research Quarterly*
+Qualitative and Quantitative Options. \emph{Political Research Quarterly}
 61 (2): 294-308.
 (\url{https://journals.sagepub.com/doi/pdf/10.1177/1065912907313077})
 }

@@ -24,7 +24,7 @@ designate cases as typical or deviant.
 }
 \details{
 Proposed by Lieberman, Evan S. (2005): Nested Analysis as a Mixed-Method
-Strategy for Comparative Research. *American Political Science Review*
+Strategy for Comparative Research. \emph{American Political Science Review}
 99 (3): 435-452. \url{https://doi.org/10.1017/S0003055405051762}.
 }
 \examples{
