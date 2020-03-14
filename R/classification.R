@@ -84,7 +84,8 @@ predint_plot <- function(pred.df){
                                 color = status)) +
     scale_color_viridis_d() +
     theme_classic() +
-    theme(legend.title = element_blank())
+    theme(legend.title = element_blank()) -> tempplot
+  return(tempplot)
 }
 
 #' Classification of cases as typical and deviant using the standard
