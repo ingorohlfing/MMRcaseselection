@@ -23,8 +23,8 @@ residuals proposed by Weller and Barnes. \code{pathway.g} are residuals
 as calculated by Gerring.}
 }
 \value{
-A plot of the chosen residuals against the pathway variable
-created with \code{\link{ggplot2}}
+A plot of the chosen type of residuals against the pathway variable
+created with \code{\link{ggplot2}}.
 }
 \description{
 Plot of residuals against pathway variable

@@ -64,8 +64,8 @@ pathway <- function(full.model, reduced.model){
 #' residuals proposed by Weller and Barnes. \code{pathway.g} are residuals
 #' as calculated by Gerring.
 #'
-#' @return A plot of the chosen residuals against the pathway variable
-#' created with \code{\link{ggplot2}}
+#' @return A plot of the chosen type of residuals against the pathway variable
+#' created with \code{\link{ggplot2}}.
 #'
 #' @examples
 #' #' df_full <- lm(mpg ~ disp + wt, data = mtcars)
