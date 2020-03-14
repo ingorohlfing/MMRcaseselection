@@ -57,6 +57,36 @@ predint <- function(lmobject, piwidth = 0.95){
   }
 }
 
+#' Plot of typical and deviant cases based on prediction interval
+#'
+#' Presented in Rohlfing, Ingo and Peter Starke (2013):
+#' Building on Solid Ground: Robust Case Selection in Multi-Method Research.
+#' \emph{Swiss Political Science Review} 19 (4): 492-512.
+#' (\url{https://doi.org/10.1111/spsr.12052})
+#'
+#' @param pred.df A dataframe created with \code{predint}.
+#'
+#' @return A plot of the observed outcome against the fitted outcome with
+#' prediction intervals and case classifications. Created with
+#' \code{\link{ggplot2}}.
+#
+#' @examples
+#' df <- lm(mpg ~ disp + wt, data = mtcars)
+#' predintstatus <- predint(df, piwidth = 0.9)
+#' predint_plot(predintstatus)
+#'
+#' @export
+predint_plot <- function(pred.df){
+  ggplot2::ggplot(data = pred.df) +
+    geom_point(mapping = aes(x = fit, y = outcome, color = status)) +
+    geom_abline(intercept = 0, slope = 1, linetype = 5) +
+    geom_errorbar(mapping = aes(x = fit, ymin = lwr, ymax = upr,
+                                color = status)) +
+    scale_color_viridis_d() +
+    theme_classic() +
+    theme(legend.title = element_blank())
+}
+
 #' Classification of cases as typical and deviant using the standard
 #' deviation of the residuals.
 #'
