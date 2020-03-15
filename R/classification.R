@@ -69,6 +69,8 @@ predint <- function(lmobject, piwidth = 0.95){
 #' @return A plot of the observed outcome against the fitted outcome with
 #' prediction intervals and case classifications. Created with
 #' \code{\link{ggplot2}}.
+#'
+#' @import ggplot2
 #
 #' @examples
 #' df <- lm(mpg ~ disp + wt, data = mtcars)
@@ -77,15 +79,14 @@ predint <- function(lmobject, piwidth = 0.95){
 #'
 #' @export
 predint_plot <- function(pred.df){
-  ggplot2::ggplot(data = pred.df) +
+  ggplot(data = pred.df) +
     geom_point(mapping = aes(x = fit, y = outcome, color = status)) +
     geom_abline(intercept = 0, slope = 1, linetype = 5) +
     geom_errorbar(mapping = aes(x = fit, ymin = lwr, ymax = upr,
                                 color = status)) +
     scale_color_viridis_d() +
     theme_classic() +
-    theme(legend.title = element_blank()) -> tempplot
-  return(tempplot)
+    theme(legend.title = element_blank())
 }
 
 #' Classification of cases as typical and deviant using the standard
