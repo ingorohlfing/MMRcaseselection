@@ -64,7 +64,7 @@ predint <- function(lmobject, piwidth = 0.95){
 #' \emph{Swiss Political Science Review} 19 (4): 492-512.
 #' (\url{https://doi.org/10.1111/spsr.12052})
 #'
-#' @param pred.df A dataframe created with \code{predint}.
+#' @param pred.df A dataframe created with \code{\link{predint}}.
 #'
 #' @return A plot of the observed outcome against the fitted outcome with
 #' prediction intervals and case classifications. Created with
@@ -74,8 +74,8 @@ predint <- function(lmobject, piwidth = 0.95){
 #
 #' @examples
 #' df <- lm(mpg ~ disp + wt, data = mtcars)
-#' predintstatus <- predint(df, piwidth = 0.9)
-#' predint_plot(predintstatus)
+#' predint_status <- predint(df, piwidth = 0.9)
+#' predint_plot(predint_status)
 #'
 #' @export
 predint_plot <- function(pred.df){
@@ -140,3 +140,32 @@ resid_std <- function(lmobject, stdshare = 1){
   }
 }
 
+#' Plot of typical and deviant cases based on residuals' standard deviation
+#'
+#' @param resid.df A dataframe created with \code{\link{resid_std}}.
+#'
+#' @return A plot of the observed outcome against the fitted outcome with
+#' interval and case classifications. Created with
+#' \code{\link{ggplot2}}.
+#'
+#' @import ggplot2
+#'
+#' @examples
+#' df <- lm(mpg ~ disp + wt, data = mtcars)
+#' residstd_status <- resid_std(df, stdshare = 1)
+#' residstd_plot(residstd_status)
+#'
+#' @export
+residstd_plot <- function(resid.df){
+  resid.df$lwr <- resid.df$fit-resid.df$residual.scale
+  resid.df$upr <- resid.df$fit+resid.df$residual.scale
+  ggplot(data = resid.df) +
+    geom_ribbon(mapping = aes(x = fit, ymin = lwr, ymax = upr),
+                alpha = 0.05) +
+    geom_point(mapping = aes(x = fit, y = outcome, shape = status),
+               size = 2) +
+    geom_abline(intercept = 0, slope = 1, linetype = 5) +
+    scale_color_viridis_d() +
+    theme_classic() +
+    theme(legend.title = element_blank())
+}

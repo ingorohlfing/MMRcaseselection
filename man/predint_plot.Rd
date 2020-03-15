@@ -7,7 +7,7 @@
 predint_plot(pred.df)
 }
 \arguments{
-\item{pred.df}{A dataframe created with \code{predint}.}
+\item{pred.df}{A dataframe created with \code{\link{predint}}.}
 }
 \value{
 A plot of the observed outcome against the fitted outcome with
@@ -22,7 +22,7 @@ Building on Solid Ground: Robust Case Selection in Multi-Method Research.
 }
 \examples{
 df <- lm(mpg ~ disp + wt, data = mtcars)
-predintstatus <- predint(df, piwidth = 0.9)
-predint_plot(predintstatus)
+predint_status <- predint(df, piwidth = 0.9)
+predint_plot(predint_status)
 
 }
