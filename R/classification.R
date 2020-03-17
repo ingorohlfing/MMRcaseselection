@@ -160,9 +160,9 @@ residstd_plot <- function(resid.df){
   resid.df$lwr <- resid.df$fit-resid.df$residual.scale
   resid.df$upr <- resid.df$fit+resid.df$residual.scale
   ggplot(data = resid.df) +
-    geom_ribbon(mapping = aes(x = fit, ymin = lwr, ymax = upr),
-                alpha = 0.05) +
-    geom_point(mapping = aes(x = fit, y = outcome, shape = status),
+    geom_line(mapping = aes(x = fit, y = lwr), color = "grey") +
+    geom_line(mapping = aes(x = fit, y = upr), color = "grey") +
+    geom_point(mapping = aes(x = fit, y = outcome, color = status),
                size = 2) +
     geom_abline(intercept = 0, slope = 1, linetype = 5) +
     scale_color_viridis_d() +
