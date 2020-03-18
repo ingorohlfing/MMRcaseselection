@@ -12,9 +12,8 @@ pathway(full.model, reduced.model)
 \item{reduced.model}{Reduced model excluding covariate of interest}
 }
 \value{
-A dataframe with pathway case residuals. The value for
-\code{pathway.abs} is \code{NA} if the full-model residual is equal
-to or larger than the reduced-model residual.
+A dataframe with pathway case residuals (pathway values) for
+both definitions of pathway values.
 }
 \description{
 Calculation of difference between residuals of full model and reduced

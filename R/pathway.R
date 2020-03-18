@@ -21,9 +21,8 @@
 #' @param full.model Full model including covariate of interest
 #' @param reduced.model Reduced model excluding covariate of interest
 #'
-#' @return A dataframe with pathway case residuals. The value for
-#' \code{pathway.abs} is \code{NA} if the full-model residual is equal
-#' to or larger than the reduced-model residual.
+#' @return A dataframe with pathway case residuals (pathway values) for
+#' both definitions of pathway values.
 #'
 #' @importFrom stats lm residuals
 #'
@@ -39,9 +38,8 @@ pathway <- function(full.model, reduced.model){
       full.resid <- residuals(full.model) # full model
       reduced.resid <- residuals(reduced.model) # reduced model
       pathway.wb <- abs(reduced.resid)-abs(full.resid) # difference
-      pathway.g <- ifelse(reduced.resid > full.resid,
-                            abs(reduced.resid-full.resid),
-                            NA)
+      pathway.gvalue <- abs(reduced.resid-full.resid)
+      pathway.gtype <- ifelse(reduced.resid > full.resid, "yes", "no")
       comb <- cbind(full.model$model, full.resid, reduced.resid,
                     pathway.wb, pathway.g)
       return(comb)
