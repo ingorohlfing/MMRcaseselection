@@ -41,7 +41,7 @@ pathway <- function(full.model, reduced.model){
       pathway.gvalue <- abs(reduced.resid-full.resid)
       pathway.gtype <- ifelse(reduced.resid > full.resid, "yes", "no")
       comb <- cbind(full.model$model, full.resid, reduced.resid,
-                    pathway.wb, pathway.g)
+                    pathway.wb, pathway.gvalue, pathway.gtype)
       return(comb)
     }
     else{
@@ -66,7 +66,7 @@ pathway <- function(full.model, reduced.model){
 #' created with \code{\link{ggplot2}}.
 #'
 #' @examples
-#' #' df_full <- lm(mpg ~ disp + wt, data = mtcars)
+#' df_full <- lm(mpg ~ disp + wt, data = mtcars)
 #' df_reduced <- lm(mpg ~ wt, data = mtcars)
 #' pathway_xvr(full.model, reduced.model, pathway.var = "disp",
 #' pathway.type = "pathway.wb")
@@ -75,10 +75,25 @@ pathway <- function(full.model, reduced.model){
 pathway_xvr <- function(full.model, reduced.model,
                         pathway.var = "variable", pathway.type = "residual"){
   pwdf <- pathway(df_full, df_reduced)
-  pwplot <- ggplot2::ggplot() +
-    geom_point(data = pwdf, mapping = aes_string(x = pathway.var, y = pathway.type)) +
-    geom_hline(yintercept = 0, linetype = 5) +
-    scale_y_continuous("Residuals") +
-    theme_classic() -> pwplot
+  if(pathway.type == "pathway.wb"){
+    pwplot <- ggplot2::ggplot() +
+      geom_point(data = pwdf, mapping = aes_string(x = pathway.var,
+                                                   y = pathway.type)) +
+      geom_hline(yintercept = 0, linetype = 5) +
+      scale_y_continuous("Residuals") +
+      theme_classic() -> pwplot
+  }
+  else{
+    pwplot <- ggplot2::ggplot() +
+      geom_point(data = pwdf, mapping = aes_string(x = pathway.var,
+                                                   y = pathway.type,
+                                                   color = "pathway.gtype")) +
+      geom_hline(yintercept = 0, linetype = 5) +
+      scale_y_continuous("Residuals") +
+      scale_color_viridis_d("Reduced > full residuals") +
+      theme_classic() +
+      theme(legend.position = "bottom") -> pwplot
+  }
   return(pwplot)
 }
+
