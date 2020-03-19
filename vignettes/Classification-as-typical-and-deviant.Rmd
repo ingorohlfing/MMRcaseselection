@@ -31,7 +31,7 @@ head(pi_df)
 The designation of cases based on the prediction interval can be visualized with the `predint_plot()` command. The graph plots observed vs. fitted outcome values together with the % prediction interval. The plot is a `gg` object and can be edited with the usual commands of the `ggplot2` package. 
 
 The input has to be a dataframe produced with `predint()`. Each case has its own interval because they can differ between cases. The color scheme is the [viridis color palette](https://cran.r-project.org/web/packages/viridis/vignettes/intro-to-viridis.html) that is accustomed for colorblind readers and also works when printed in grey scale. If the viridis palette is not preferred, one can substitute it with any other `scale_color_*` scheme by adding it to the command.
-```{r, fig.height=6,fig.width=6}
+```{r, fig.height = 6, fig.width = 6}
 predint_plot(pi_df)
 # Using scale_color_brewer() instead of the viridis palette.
 predint_plot(pi_df) + scale_color_brewer()
