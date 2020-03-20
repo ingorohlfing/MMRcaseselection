@@ -21,8 +21,20 @@
 #' @param full.model Full model including covariate of interest
 #' @param reduced.model Reduced model excluding covariate of interest
 #'
-#' @return A dataframe with pathway case residuals (pathway values) for
-#' both definitions of pathway values.
+#' @return A dataframe with
+#'
+#' - all full model variables,
+#'
+#' - full model residuals (\code{full.resid}),
+#'
+#' - reduced model residuals (\code{reduced.resid}),
+#'
+#' - pathway values following Weller/Barnes (\code{pathway.wb}),
+#'
+#' - pathway values following Gerring (\code{pathway.gvalue}),
+#'
+#' - variable showing whether Gerring's criterion for a pathway
+#' case is met (\code{pathway.gstatus})
 #'
 #' @importFrom stats lm residuals
 #'
@@ -80,7 +92,7 @@ pathway_xvr <- function(full.model, reduced.model,
       geom_point(data = pwdf, mapping = aes_string(x = pathway.var,
                                                    y = pathway.type)) +
       geom_hline(yintercept = 0, linetype = 5) +
-      scale_y_continuous("Residuals") +
+      scale_y_continuous("Pathway values") +
       theme_classic() -> pwplot
   }
   else{
@@ -89,7 +101,7 @@ pathway_xvr <- function(full.model, reduced.model,
                                                    y = pathway.type,
                                                    color = "pathway.gtype")) +
       geom_hline(yintercept = 0, linetype = 5) +
-      scale_y_continuous("Residuals") +
+      scale_y_continuous("Pathway values") +
       scale_color_viridis_d("Reduced > full residuals") +
       theme_classic() +
       theme(legend.position = "bottom") -> pwplot
