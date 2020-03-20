@@ -12,8 +12,20 @@ pathway(full.model, reduced.model)
 \item{reduced.model}{Reduced model excluding covariate of interest}
 }
 \value{
-A dataframe with pathway case residuals (pathway values) for
-both definitions of pathway values.
+A dataframe with
+
+- all full model variables,
+
+- full model residuals (\code{full.resid}),
+
+- reduced model residuals (\code{reduced.resid}),
+
+- pathway values following Weller/Barnes (\code{pathway.wb}),
+
+- pathway values following Gerring (\code{pathway.gvalue}),
+
+- variable showing whether Gerring's criterion for a pathway
+case is met (\code{pathway.gstatus})
 }
 \description{
 Calculation of difference between residuals of full model and reduced

@@ -30,7 +30,7 @@ created with \code{\link{ggplot2}}.
 Plot of residuals against pathway variable
 }
 \examples{
-#' df_full <- lm(mpg ~ disp + wt, data = mtcars)
+df_full <- lm(mpg ~ disp + wt, data = mtcars)
 df_reduced <- lm(mpg ~ wt, data = mtcars)
 pathway_xvr(full.model, reduced.model, pathway.var = "disp",
 pathway.type = "pathway.wb")
