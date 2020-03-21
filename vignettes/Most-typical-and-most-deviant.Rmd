@@ -1,0 +1,47 @@
+---
+title: "Most typical and most deviant"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Most-typical-and-most-deviant}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup, message = F}
+library(MMRcaseselection)
+library(olsrr) # for diagnostic plot
+```
+
+One can use four functions to choose four types of cases without classifying all cases as either typical or deviant. The most typical and deviant cases are proposed by Seawright and Gerring ([2008](https://doi.org/10.1177%2F1065912907313077])). 
+
+* The most typical case has the smallest residual of all cases.
+* The most deviant case has the largest residual of all cases.
+
+The two functions `most_typical()` and `most_deviant()` work in the same way and have as output the case with its residual. The only required input is the result of a linear regression analysis (an `lm` object).
+```{r}
+df <- lm(mpg ~ disp + wt, data = mtcars)
+most_typical(df)
+most_deviant(df)
+```
+
+The most deviant case does not distinguish between cases that have a large negative or large positive residuals. Cases with a large negative residual are *overpredicted* because the predicted outcome is much higher than the observed outcome. Cases with a large positive residual are *underpredicted* because the predicted outcome is much lower than the observed outcome. It might not matter whether a case is overpredicted or underpredicted because both subtypes of outliers can have the same type of deviance. However, one might be interested in knowing whether a case has a large positive or a large negative residual to treat them on their own ground (I know from teaching that participants more often than not make a distinction between under- and overpredicted cases). The functions `most_overpredicted()` and `most_underpredicted()` show what the deviant cases with the largest positive and negative residuals are.
+```{r}
+# largest positive residual
+most_underpredicted(df)
+# largest negative residual
+most_overpredicted(df)
+```
+
+The package does not include functions for plotting the cases. There are multiple, very useful packages such as the [olsrr](https://olsrr.rsquaredacademy.com/articles/residual_diagnostics.html) package that can be used for the easy visualization of residuals. The `ols_plot_resid_fit()` function plots the residuals against the fitted outcome values, which is an equivalent way of plotting the information in an observed-vs-fitted plot that is used by Lieberman ([2005](https://doi.org/10.1017/S0003055405051762)), for example.
+```{r, fig.width = 6, fig.height = 6}
+olsrr::ols_plot_resid_fit(df)
+```
+
+
