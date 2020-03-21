@@ -24,7 +24,7 @@
 #' upper and lower bound of the % prediction interval and classification
 #' of cases as typical or deviant.
 #'
-#' @importFrom stats lm residuals
+#' @importFrom stats lm residuals predict.lm
 #'
 #' @examples
 #' df <- lm(mpg ~ disp + wt, data = mtcars)
