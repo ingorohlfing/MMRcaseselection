@@ -39,9 +39,6 @@ most_underpredicted(df)
 most_overpredicted(df)
 ```
 
-The package does not include functions for plotting the cases. There are multiple, very useful packages such as the [olsrr](https://olsrr.rsquaredacademy.com/articles/residual_diagnostics.html) package that can be used for the easy visualization of residuals. The `ols_plot_resid_fit()` function plots the residuals against the fitted outcome values, which is an equivalent way of plotting the information in an observed-vs-fitted plot that is used by Lieberman ([2005](https://doi.org/10.1017/S0003055405051762)), for example.
-```{r, fig.width = 6, fig.height = 6}
-olsrr::ols_plot_resid_fit(df)
-```
+The package does not include functions for plotting the cases. There are multiple, very useful packages such as the [olsrr](https://olsrr.rsquaredacademy.com/articles/residual_diagnostics.html) package that can be used for the easy visualization of residuals. 
 
 
