@@ -16,7 +16,6 @@ knitr::opts_chunk$set(
 
 ```{r setup, message = F}
 library(MMRcaseselection)
-library(olsrr) # for diagnostic plot
 ```
 
 One can use four functions to choose four types of cases without classifying all cases as either typical or deviant. The most typical and deviant cases are proposed by Seawright and Gerring ([2008](https://doi.org/10.1177%2F1065912907313077])). 
