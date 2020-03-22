@@ -1,8 +1,10 @@
 ---
 title: "Classification as typical and deviant"
+author: "Ingo Rohlfing"
+date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Classification-as-typical-and-deviant}
+  %\VignetteIndexEntry{Classification as typical and deviant}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---

@@ -1,8 +1,10 @@
 ---
 title: "Most typical and most deviant"
+author: "Ingo Rohlfing"
+date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Most-typical-and-most-deviant}
+  %\VignetteIndexEntry{Most typical and most deviant}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---

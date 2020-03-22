@@ -1,8 +1,10 @@
 ---
 title: "Pathway case"
+author: "Ingo Rohlfing"
+date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Pathway-case}
+  %\VignetteIndexEntry{Pathway case}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
