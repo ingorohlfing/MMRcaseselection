@@ -14,7 +14,7 @@ The most overpredicted case with the largest negative residual
 (the most negative residual).
 }
 \description{
-Identifies the case with the largest negative difference between the observed
+The case with the largest negative difference between the observed
 value and the predicted value on the outcome. Depending on the research
 question, there might be a specific interest in the case for which the
 model performs worst and yields a larger predicted value.

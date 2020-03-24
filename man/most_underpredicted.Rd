@@ -14,7 +14,7 @@ The most underpredicted case with the largest positive residual
 (the most positive residual).
 }
 \description{
-Identifies the case with the largest positive difference between the observed
+The case with the largest positive difference between the observed
 value and the predicted value on the outcome. Depending on the research
 question, there might be a specific interest in the case for which the
 model performs worst and yields a smaller predicted value.
@@ -22,4 +22,5 @@ model performs worst and yields a smaller predicted value.
 \examples{
 df <- lm(mpg ~ disp + wt, data = mtcars)
 most_underpredicted(df)
+
 }
