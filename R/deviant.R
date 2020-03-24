@@ -3,9 +3,9 @@
 #' Identification of the most deviant case
 #'
 #' Identification of the most deviant case (= worst predicted case),
-#' given regression estimates.
+#' based on regression estimates.
 #'
-#' Proposed by: Seawright, Jason and John Gerring (2008):
+#' Proposed by Seawright, Jason and John Gerring (2008):
 #' Case Selection Techniques in Case Study Research: A Menu of
 #' Qualitative and Quantitative Options. \emph{Political Research Quarterly}
 #' 61 (2): 294-308.
@@ -34,7 +34,7 @@ most_deviant <- function(lmobject){
 
 #' Identification of the most overpredicted case
 #'
-#' Identifies the case with the largest negative difference between the observed
+#' The case with the largest negative difference between the observed
 #' value and the predicted value on the outcome. Depending on the research
 #' question, there might be a specific interest in the case for which the
 #' model performs worst and yields a larger predicted value.
@@ -60,7 +60,7 @@ most_overpredicted <- function(lmobject){
 
 #' Identification of the most underpredicted case
 #'
-#' Identifies the case with the largest positive difference between the observed
+#' The case with the largest positive difference between the observed
 #' value and the predicted value on the outcome. Depending on the research
 #' question, there might be a specific interest in the case for which the
 #' model performs worst and yields a smaller predicted value.
@@ -69,10 +69,13 @@ most_overpredicted <- function(lmobject){
 #'
 #' @return The most underpredicted case with the largest positive residual
 #' (the most positive residual).
+#'
 #' @importFrom stats lm residuals
+#'
 #' @examples
 #' df <- lm(mpg ~ disp + wt, data = mtcars)
 #' most_underpredicted(df)
+#'
 #' @export
 most_underpredicted <- function(lmobject){
   if(class(lmobject) == "lm"){
