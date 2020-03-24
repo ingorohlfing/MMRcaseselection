@@ -11,8 +11,7 @@ residstd_plot(resid.df)
 }
 \value{
 A plot of the observed outcome against the fitted outcome with
-interval and case classifications. Created with
-\code{\link{ggplot2}}.
+interval and case classifications. Created with \code{\link{ggplot2}}.
 }
 \description{
 Plot of typical and deviant cases based on residuals' standard deviation

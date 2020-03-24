@@ -2,7 +2,7 @@
 % Please edit documentation in R/classification.R
 \name{predint}
 \alias{predint}
-\title{Classification of cases as typical and deviant using the prediction
+\title{Classification of cases as typical and deviant using a prediction
 interval.}
 \usage{
 predint(lmobject, piwidth = 0.95)
@@ -14,18 +14,18 @@ predint(lmobject, piwidth = 0.95)
 }
 \value{
 A dataframe with the observed outcome, fitted outcome,
-upper and lower bound of the % prediction interval and classification
+upper and lower bound of the \% prediction interval and classification
 of cases as typical or deviant.
 }
 \description{
 Case are designated as typical (= well predicted) and deviant
-(= badly predicted) based on the prediction interal. The x\% prediction
+(= badly predicted) based on the prediction interval. The x\% prediction
 interval represents the range of outcome values that we expect to include
-x\% of outcome values in future samples. For example, a 95\% prediction
-interval ranging from 0-5 conveys that 95\% of future outcome values of
-similar cases will be in the range of 0-5. If the observed outcome is
-inside of the interval, the case counts as typical and as deviant
-otherwise.
+x\% of outcome values in future repeated samples. For example, a 95\%
+prediction interval ranging from 0-5 conveys that 95\% of future outcome
+values will be in the range of 0-5. If the observed outcome
+is inside the prediction interval, the case is classified (or designated) as
+ typical and as deviant otherwise.
 }
 \details{
 Proposed by Rohlfing, Ingo and Peter Starke (2013):

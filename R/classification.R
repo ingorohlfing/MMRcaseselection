@@ -1,16 +1,14 @@
-
-
-#' Classification of cases as typical and deviant using the prediction
+#' Classification of cases as typical and deviant using a prediction
 #' interval.
 #'
 #' Case are designated as typical (= well predicted) and deviant
-#' (= badly predicted) based on the prediction interal. The x\% prediction
+#' (= badly predicted) based on the prediction interval. The x\% prediction
 #' interval represents the range of outcome values that we expect to include
-#' x\% of outcome values in future samples. For example, a 95\% prediction
-#' interval ranging from 0-5 conveys that 95\% of future outcome values of
-#' similar cases will be in the range of 0-5. If the observed outcome is
-#' inside of the interval, the case counts as typical and as deviant
-#' otherwise.
+#' x\% of outcome values in future repeated samples. For example, a 95\%
+#' prediction interval ranging from 0-5 conveys that 95\% of future outcome
+#' values will be in the range of 0-5. If the observed outcome
+#' is inside the prediction interval, the case is classified (or designated) as
+#'  typical and as deviant otherwise.
 #'
 #' Proposed by Rohlfing, Ingo and Peter Starke (2013):
 #' Building on Solid Ground: Robust Case Selection in Multi-Method Research.
@@ -21,7 +19,7 @@
 #' @param piwidth Width of the prediction interval.
 #'
 #' @return A dataframe with the observed outcome, fitted outcome,
-#' upper and lower bound of the % prediction interval and classification
+#' upper and lower bound of the \% prediction interval and classification
 #' of cases as typical or deviant.
 #'
 #' @importFrom stats lm residuals predict.lm
@@ -81,9 +79,12 @@ predint <- function(lmobject, piwidth = 0.95){
 predint_plot <- function(pred.df){
   ggplot(data = pred.df) +
     geom_point(mapping = aes(x = fit, y = outcome, color = status)) +
+    # bisecting line
     geom_abline(intercept = 0, slope = 1, linetype = 5) +
+    # prediction intervals
     geom_errorbar(mapping = aes(x = fit, ymin = lwr, ymax = upr,
                                 color = status)) +
+    # colorblind scheme
     scale_color_viridis_d() +
     theme_classic() +
     theme(legend.title = element_blank())
@@ -145,8 +146,7 @@ resid_std <- function(lmobject, stdshare = 1){
 #' @param resid.df A dataframe created with \code{\link{resid_std}}.
 #'
 #' @return A plot of the observed outcome against the fitted outcome with
-#' interval and case classifications. Created with
-#' \code{\link{ggplot2}}.
+#' interval and case classifications. Created with \code{\link{ggplot2}}.
 #'
 #' @import ggplot2
 #'
@@ -157,14 +157,19 @@ resid_std <- function(lmobject, stdshare = 1){
 #'
 #' @export
 residstd_plot <- function(resid.df){
+  # Calculation of upper and lower bounds
   resid.df$lwr <- resid.df$fit-resid.df$residual.scale
   resid.df$upr <- resid.df$fit+resid.df$residual.scale
   ggplot(data = resid.df) +
+    # lower bound
     geom_line(mapping = aes(x = fit, y = lwr), color = "grey") +
+    # upper bound
     geom_line(mapping = aes(x = fit, y = upr), color = "grey") +
     geom_point(mapping = aes(x = fit, y = outcome, color = status),
                size = 2) +
+    # bisecting line
     geom_abline(intercept = 0, slope = 1, linetype = 5) +
+    # colorblind scheme
     scale_color_viridis_d() +
     theme_classic() +
     theme(legend.title = element_blank())
