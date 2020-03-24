@@ -2,23 +2,24 @@
 
 #' Pathway case
 #'
-#' Calculation of difference between residuals of full model and reduced
-#' model lacking the focal variable. The larger the difference, the more
-#' a case qualifies as a pathway case suitable for the analysis of
-#' mechanisms.
+#' Calculation of pathway values, defined as the difference between residuals of
+#' full model and reduced model lacking the pathway variable. The larger the
+#' difference, the more a case qualifies as a pathway case suitable for the
+#' analysis of mechanisms.
 #'
-#' The plain difference follows the approach developed by Weller and Barnes
-#' (Weller, Nicholas and Jeb Barnes (2014): \emph{Finding Pathways: Mixed-Method
-#' Research for Studying Causal Mechanisms.} Cambridge: Cambridge University
-#' Press. \url{https://doi.org/10.1017/CBO9781139644501}).
+#' The difference between the absolute residuals of the full and reduced model
+#' follows the approach developed by Weller and Barnes (2014):
+#' \emph{Finding Pathways: Mixed-Method Research for Studying Causal Mechanisms.}
+#' Cambridge: Cambridge University Press.
+#' \url{https://doi.org/10.1017/CBO9781139644501}).
 #'
-#' The calculation of the absolute residual if the reduced-model
-#' residual is larger than the full-model residual follows the original
-#' proposal by Gerring (Gerring, John (2007): Is There a (Viable)
+#' The calculation of the absolute difference between the full and reduced model
+#' if the reduced-model residual is larger than the full-model residual follows
+#' the original proposal by Gerring (2007): Is There a (Viable)
 #' Crucial-Case Method? \emph{Comparative Political Studies} 40 (3): 231-253.
 #' \url{https://journals.sagepub.com/doi/10.1177/0010414006290784})
 #'
-#' @param full.model Full model including covariate of interest
+#' @param full.model Full model including covariate of interest (=pathway variable)
 #' @param reduced.model Reduced model excluding covariate of interest
 #'
 #' @return A dataframe with
@@ -47,10 +48,15 @@
 pathway <- function(full.model, reduced.model){
   if(class(full.model) == "lm"){
     if(class(reduced.model) == "lm"){
-      full.resid <- residuals(full.model) # full model
-      reduced.resid <- residuals(reduced.model) # reduced model
-      pathway.wb <- abs(reduced.resid)-abs(full.resid) # difference
+      # full model
+      full.resid <- residuals(full.model)
+      # reduced model
+      reduced.resid <- residuals(reduced.model)
+      # difference between absolute residuals
+      pathway.wb <- abs(reduced.resid)-abs(full.resid)
+      # absolute difference between residuals
       pathway.gvalue <- abs(reduced.resid-full.resid)
+      # check for Gerring's criterion for pathway values
       pathway.gtype <- ifelse(reduced.resid > full.resid, "yes", "no")
       comb <- cbind(full.model$model, full.resid, reduced.resid,
                     pathway.wb, pathway.gvalue, pathway.gtype)
@@ -67,14 +73,14 @@ pathway <- function(full.model, reduced.model){
 
 #' Plot of residuals against pathway variable
 #'
-#' @param full.model Full model including covariate of interest
+#' @param full.model Full model including covariate of interest (=pathway variable)
 #' @param reduced.model Reduced model excluding covariate of interest
-#' @param pathway.var Variable that is dropped from full model
-#' @param pathway.type Type of pathway residual. \code{pathway.wb} are
-#' residuals proposed by Weller and Barnes. \code{pathway.g} are residuals
+#' @param pathway.var Pathway variable dropped from full model
+#' @param pathway.type Type of pathway values. \code{pathway.wb} are
+#' pathway values proposed by Weller and Barnes. \code{pathway.g} are values
 #' as calculated by Gerring.
 #'
-#' @return A plot of the chosen type of residuals against the pathway variable
+#' @return A plot of the chosen type of pathway values against the pathway variable
 #' created with \code{\link{ggplot2}}.
 #'
 #' @examples

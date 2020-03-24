@@ -12,18 +12,18 @@ pathway_xvr(
 )
 }
 \arguments{
-\item{full.model}{Full model including covariate of interest}
+\item{full.model}{Full model including covariate of interest (=pathway variable)}
 
 \item{reduced.model}{Reduced model excluding covariate of interest}
 
-\item{pathway.var}{Variable that is dropped from full model}
+\item{pathway.var}{Pathway variable dropped from full model}
 
-\item{pathway.type}{Type of pathway residual. \code{pathway.wb} are
-residuals proposed by Weller and Barnes. \code{pathway.g} are residuals
+\item{pathway.type}{Type of pathway values. \code{pathway.wb} are
+pathway values proposed by Weller and Barnes. \code{pathway.g} are values
 as calculated by Gerring.}
 }
 \value{
-A plot of the chosen type of residuals against the pathway variable
+A plot of the chosen type of pathway values against the pathway variable
 created with \code{\link{ggplot2}}.
 }
 \description{

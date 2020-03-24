@@ -7,7 +7,7 @@
 pathway(full.model, reduced.model)
 }
 \arguments{
-\item{full.model}{Full model including covariate of interest}
+\item{full.model}{Full model including covariate of interest (=pathway variable)}
 
 \item{reduced.model}{Reduced model excluding covariate of interest}
 }
@@ -28,20 +28,21 @@ A dataframe with
 case is met (\code{pathway.gstatus})
 }
 \description{
-Calculation of difference between residuals of full model and reduced
-model lacking the focal variable. The larger the difference, the more
-a case qualifies as a pathway case suitable for the analysis of
-mechanisms.
+Calculation of pathway values, defined as the difference between residuals of
+full model and reduced model lacking the pathway variable. The larger the
+difference, the more a case qualifies as a pathway case suitable for the
+analysis of mechanisms.
 }
 \details{
-The plain difference follows the approach developed by Weller and Barnes
-(Weller, Nicholas and Jeb Barnes (2014): \emph{Finding Pathways: Mixed-Method
-Research for Studying Causal Mechanisms.} Cambridge: Cambridge University
-Press. \url{https://doi.org/10.1017/CBO9781139644501}).
+The difference between the absolute residuals of the full and reduced model
+follows the approach developed by Weller and Barnes (2014):
+\emph{Finding Pathways: Mixed-Method Research for Studying Causal Mechanisms.}
+Cambridge: Cambridge University Press.
+\url{https://doi.org/10.1017/CBO9781139644501}).
 
-The calculation of the absolute residual if the reduced-model
-residual is larger than the full-model residual follows the original
-proposal by Gerring (Gerring, John (2007): Is There a (Viable)
+The calculation of the absolute difference between the full and reduced model
+if the reduced-model residual is larger than the full-model residual follows
+the original proposal by Gerring (2007): Is There a (Viable)
 Crucial-Case Method? \emph{Comparative Political Studies} 40 (3): 231-253.
 \url{https://journals.sagepub.com/doi/10.1177/0010414006290784})
 }
