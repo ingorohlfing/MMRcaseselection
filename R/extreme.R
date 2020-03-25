@@ -28,7 +28,7 @@
 #'
 #' @examples
 #' df <- lm(mpg ~ disp + wt, data = mtcars)
-#' extreme_on_X(df, "wt)
+#' extreme_on_X(df, "wt")
 #'
 #' @export
 extreme_on_X <- function(lmobject, ind.var){
@@ -69,7 +69,7 @@ extreme_on_X <- function(lmobject, ind.var){
 #'
 #' @examples
 #' df <- lm(mpg ~ disp + wt, data = mtcars)
-#' extreme_on_Y(df, "wt)
+#' extreme_on_Y(df, "wt")
 #'
 #' @importFrom stats lm
 #'
