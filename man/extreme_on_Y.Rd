@@ -31,6 +31,7 @@ Calculating the absolute value of the difference between the cases' values
 and the variable's mean value is proposed by Seawright, Jason (2016): The
 Case for Selecting Cases That Are Deviant or Extreme on the Independent
 Variable. \emph{Sociological Methods & Research} 45 (3): 493-525.
+(\url{https://doi.org/10.1177/0049124116643556})
 }
 \examples{
 df <- lm(mpg ~ disp + wt, data = mtcars)
