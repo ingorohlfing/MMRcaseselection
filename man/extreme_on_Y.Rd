@@ -19,6 +19,8 @@ score and mean value of variable),
 
 - extremeness (difference between variable score and mean value of
 variable), which can be useful when the direction of extremeness is relevant.
+
+The rows are ordered in decreasing order of the absolute extreme values.
 }
 \description{
 Extremeness of a case is calculated by the difference between a case's

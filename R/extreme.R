@@ -23,6 +23,8 @@
 #' - extremeness (difference between variable score and mean value of
 #' variable), which can be useful when the direction of extremeness is relevant.
 #'
+#' The rows are ordered in decreasing order of the absolute extreme values.
+#'
 #' @importFrom stats lm
 #'
 #'
@@ -66,6 +68,8 @@ extreme_on_X <- function(lmobject, ind.var){
 #'
 #' - extremeness (difference between variable score and mean value of
 #' variable), which can be useful when the direction of extremeness is relevant.
+#'
+#' The rows are ordered in decreasing order of the absolute extreme values.
 #'
 #' @examples
 #' df <- lm(mpg ~ disp + wt, data = mtcars)
