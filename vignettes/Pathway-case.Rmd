@@ -18,7 +18,6 @@ knitr::opts_chunk$set(
 
 ```{r setup}
 library(MMRcaseselection)
-library(ggplot2) # for illustration of plot customization
 ```
 
 The choice of a pathway case aims to maximize the chances of finding evidence for a mechanism. Originally, it was proposed by Gerring ([2007](https://doi.org/10.1177%2F0010414006290784)). The *pathway value* of a case is defined as $|resid_{reduced}-res_{full}|$ if it holds that $|resid_{reduced}| > |resid_{full}|$, whered 'full' stands for the full regression model one has specified and 'reduced' for the model that lacks the pathway variable of theoretical interest. Following Gerring, one should only choose among the cases meeting the requirement that $|resid_{reduced}| > |resid_{full}|$. In follow-up research, Weller and Barnes ([2014](https://doi.org/10.1017/CBO9781139644501)) propose a different calculation of the pathway value: $|resid_{reduced}|-|res_{full}|$. The package contains a function allowing one to calculate both pathway values and plotting them. 
