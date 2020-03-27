@@ -22,7 +22,7 @@
 #' most_typical(df)
 #'
 #' @export
-most_typical <- function(lmobject){
+most_typical <- function(lmobject) {
   if (class(lmobject) == "lm") {
   absresid <- sort(abs(residuals(lmobject)))
   return(absresid[1])

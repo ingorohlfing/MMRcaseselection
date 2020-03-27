@@ -22,7 +22,7 @@
 #' df <- lm(mpg ~ disp + wt, data = mtcars)
 #' most_deviant(df)
 #' @export
-most_deviant <- function(lmobject){
+most_deviant <- function(lmobject) {
   if (class(lmobject) == "lm") {
     absresid <- sort(abs(residuals(lmobject)))
     return(absresid[length(absresid)])
@@ -48,7 +48,7 @@ most_deviant <- function(lmobject){
 #' df <- lm(mpg ~ disp + wt, data = mtcars)
 #' most_overpredicted(df)
 #' @export
-most_overpredicted <- function(lmobject){
+most_overpredicted <- function(lmobject) {
   if (class(lmobject) == "lm") {
     resid <- sort(residuals(lmobject))
     return(resid[1])
@@ -77,7 +77,7 @@ most_overpredicted <- function(lmobject){
 #' most_underpredicted(df)
 #'
 #' @export
-most_underpredicted <- function(lmobject){
+most_underpredicted <- function(lmobject) {
   if (class(lmobject) == "lm") {
     resid <- sort(residuals(lmobject))
     return(resid[length(resid)])

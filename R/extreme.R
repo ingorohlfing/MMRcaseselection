@@ -34,7 +34,7 @@
 #' extreme_on_X(df, "wt")
 #'
 #' @export
-extreme_on_X <- function(lmobject, ind_var){
+extreme_on_X <- function(lmobject, ind_var) {
   if (class(lmobject) == "lm") {
     tempX <- lmobject$model[, ind_var]
     tempdf <- lmobject$model
@@ -80,7 +80,7 @@ extreme_on_X <- function(lmobject, ind_var){
 #' @importFrom stats lm
 #'
 #' @export
-extreme_on_Y <- function(lmobject){
+extreme_on_Y <- function(lmobject) {
   if (class(lmobject) == "lm") {
     tempY <- lmobject$model[, 1]
     tempdf <- lmobject$model
