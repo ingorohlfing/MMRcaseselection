@@ -34,17 +34,17 @@
 #' extreme_on_X(df, "wt")
 #'
 #' @export
-extreme_on_X <- function(lmobject, ind.var){
-  if(class(lmobject) == "lm"){
-    tempX <- lmobject$model[, ind.var]
+extreme_on_X <- function(lmobject, ind_var){
+  if (class(lmobject) == "lm") {
+    tempX <- lmobject$model[, ind_var]
     tempdf <- lmobject$model
-    tempdf$`abs. extremeness` <- abs(tempX-mean(tempX))
-    tempdf$extremeness <- tempX-mean(tempX)
+    tempdf$`abs. extremeness` <- abs(tempX - mean(tempX))
+    tempdf$extremeness <- tempX - mean(tempX)
     tempdf <- tempdf[order(tempdf$`abs. extremeness`, decreasing = T), ]
     return(tempdf)
   }
   else{
-    stop('lmobject input into function is not of class "lm"')
+    stop("lmobject input into function is not of class lm")
   }
 }
 
@@ -81,15 +81,15 @@ extreme_on_X <- function(lmobject, ind.var){
 #'
 #' @export
 extreme_on_Y <- function(lmobject){
-  if(class(lmobject) == "lm"){
+  if (class(lmobject) == "lm") {
     tempY <- lmobject$model[, 1]
     tempdf <- lmobject$model
-    tempdf$`abs. extremeness` <- abs(tempY-mean(tempY))
-    tempdf$extremeness <- tempY-mean(tempY)
+    tempdf$`abs. extremeness` <- abs(tempY - mean(tempY))
+    tempdf$extremeness <- tempY - mean(tempY)
     tempdf <- tempdf[order(tempdf$`abs. extremeness`, decreasing = T), ]
     return(tempdf)
   }
   else{
-    stop('lmobject input into function is not of class "lm"')
+    stop("lmobject input into function is not of class lm")
   }
 }
