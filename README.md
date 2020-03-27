@@ -7,4 +7,4 @@ Classification and choice of cases for case studies based on regression results.
 
 ***
 
-Work on the package was funded by the European Research Council (ERC) under the European Union’s Horizon 2020 research and innovation program (grant agreement nr. 638425, *Enhanced Qualitative and Multimethod Research*).
+Work on the package was funded by the European Research Council (ERC) under the European Union’s Horizon 2020 research and innovation program (grant agreement number 638425, *Enhanced Qualitative and Multimethod Research*).
