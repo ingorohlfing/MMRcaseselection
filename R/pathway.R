@@ -45,29 +45,29 @@
 #' pathway(df_full, df_reduced)
 #'
 #' @export
-pathway <- function(full.model, reduced.model){
-  if(class(full.model) == "lm"){
-    if(class(reduced.model) == "lm"){
+pathway <- function(full_model, reduced_model){
+  if (class(full_model) == "lm") {
+    if (class(reduced_model) == "lm") {
       # full model
-      full.resid <- residuals(full.model)
+      full.resid <- residuals(full_model)
       # reduced model
-      reduced.resid <- residuals(reduced.model)
+      reduced.resid <- residuals(reduced_model)
       # difference between absolute residuals
-      pathway.wb <- abs(reduced.resid)-abs(full.resid)
+      pathway.wb <- abs(reduced.resid) - abs(full.resid)
       # absolute difference between residuals
-      pathway.gvalue <- abs(reduced.resid-full.resid)
+      pathway.gvalue <- abs(reduced.resid - full.resid)
       # check for Gerring's criterion for pathway values
       pathway.gtype <- ifelse(reduced.resid > full.resid, "yes", "no")
-      comb <- cbind(full.model$model, full.resid, reduced.resid,
+      comb <- cbind(full_model$model, full.resid, reduced.resid,
                     pathway.wb, pathway.gvalue, pathway.gtype)
       return(comb)
     }
     else{
-      stop('Reduced model object is not of class "lm"')
+      stop("Reduced model object is not of class lm")
     }
   }
   else{
-    (stop('Full model object is not of class "lm"'))
+    (stop("Full model object is not of class lm"))
   }
 }
 
@@ -86,25 +86,25 @@ pathway <- function(full.model, reduced.model){
 #' @examples
 #' df_full <- lm(mpg ~ disp + wt, data = mtcars)
 #' df_reduced <- lm(mpg ~ wt, data = mtcars)
-#' pathway_xvr(full.model, reduced.model, pathway.var = "disp",
-#' pathway.type = "pathway.wb")
+#' pathway_xvr(full_model, reduced_model, pathway_var = "disp",
+#' pathway_type = "pathway.wb")
 #'
 #' @export
-pathway_xvr <- function(full.model, reduced.model,
-                        pathway.var = "variable", pathway.type = "residual"){
+pathway_xvr <- function(full_model, reduced_model,
+                        pathway_var = "variable", pathway_type = "residual"){
   pwdf <- pathway(df_full, df_reduced)
-  if(pathway.type == "pathway.wb"){
+  if (pathway_type == "pathway.wb") {
     pwplot <- ggplot2::ggplot() +
-      geom_point(data = pwdf, mapping = aes_string(x = pathway.var,
-                                                   y = pathway.type)) +
+      geom_point(data = pwdf, mapping = aes_string(x = pathway_var,
+                                                   y = pathway_type)) +
       geom_hline(yintercept = 0, linetype = 5) +
       scale_y_continuous("Pathway values") +
       theme_classic() -> pwplot
   }
   else{
     pwplot <- ggplot2::ggplot() +
-      geom_point(data = pwdf, mapping = aes_string(x = pathway.var,
-                                                   y = pathway.type,
+      geom_point(data = pwdf, mapping = aes_string(x = pathway_var,
+                                                   y = pathway_type,
                                                    color = "pathway.gtype")) +
       geom_hline(yintercept = 0, linetype = 5) +
       scale_y_continuous("Pathway values") +
