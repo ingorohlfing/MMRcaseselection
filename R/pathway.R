@@ -8,8 +8,8 @@
 #' analysis of mechanisms.
 #'
 #' The difference between the absolute residuals of the full and reduced model
-#' follows the approach developed by Weller and Barnes (2014):
-#' \emph{Finding Pathways: Mixed-Method Research for Studying Causal Mechanisms.}
+#' follows the approach developed by Weller and Barnes (2014): \emph{Finding
+#' Pathways: Mixed-Method Research for Studying Causal Mechanisms.}
 #' Cambridge: Cambridge University Press.
 #' \url{https://doi.org/10.1017/CBO9781139644501}).
 #'
@@ -19,7 +19,8 @@
 #' Crucial-Case Method? \emph{Comparative Political Studies} 40 (3): 231-253.
 #' \url{https://journals.sagepub.com/doi/10.1177/0010414006290784})
 #'
-#' @param full.model Full model including covariate of interest (=pathway variable)
+#' @param full.model Full model including covariate of interest
+#' (=pathway variable)
 #' @param reduced.model Reduced model excluding covariate of interest
 #'
 #' @return A dataframe with
@@ -45,7 +46,7 @@
 #' pathway(df_full, df_reduced)
 #'
 #' @export
-pathway <- function(full_model, reduced_model){
+pathway <- function(full_model, reduced_model) {
   if (class(full_model) == "lm") {
     if (class(reduced_model) == "lm") {
       # full model

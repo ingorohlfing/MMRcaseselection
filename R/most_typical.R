@@ -31,4 +31,3 @@ most_typical <- function(lmobject) {
     stop("Input into function is not of class lm")
   }
 }
-
