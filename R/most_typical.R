@@ -23,12 +23,12 @@
 #'
 #' @export
 most_typical <- function(lmobject){
-  if(class(lmobject) == "lm"){
+  if (class(lmobject) == "lm") {
   absresid <- sort(abs(residuals(lmobject)))
   return(absresid[1])
   }
   else{
-    stop('Input into function is not of class "lm"')
+    stop("Input into function is not of class lm")
   }
 }
 
