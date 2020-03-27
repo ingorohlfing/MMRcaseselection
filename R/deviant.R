@@ -23,12 +23,12 @@
 #' most_deviant(df)
 #' @export
 most_deviant <- function(lmobject){
-  if(class(lmobject) == "lm"){
+  if (class(lmobject) == "lm") {
     absresid <- sort(abs(residuals(lmobject)))
     return(absresid[length(absresid)])
   }
   else{
-    stop('Input into function is not of class "lm"')
+    stop("Input into function is not of class lm")
   }
 }
 
@@ -49,12 +49,12 @@ most_deviant <- function(lmobject){
 #' most_overpredicted(df)
 #' @export
 most_overpredicted <- function(lmobject){
-  if(class(lmobject) == "lm"){
+  if (class(lmobject) == "lm") {
     resid <- sort(residuals(lmobject))
     return(resid[1])
   }
   else{
-    stop('Input into function is not of class "lm"')
+    stop("Input into function is not of class lm")
   }
 }
 
@@ -78,11 +78,11 @@ most_overpredicted <- function(lmobject){
 #'
 #' @export
 most_underpredicted <- function(lmobject){
-  if(class(lmobject) == "lm"){
+  if (class(lmobject) == "lm") {
     resid <- sort(residuals(lmobject))
     return(resid[length(resid)])
   }
   else{
-    stop('Input into function is not of class "lm"')
+    stop("Input into function is not of class lm")
   }
 }
