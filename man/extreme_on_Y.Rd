@@ -35,6 +35,6 @@ Variable. \emph{Sociological Methods & Research} 45 (3): 493-525.
 }
 \examples{
 df <- lm(mpg ~ disp + wt, data = mtcars)
-extreme_on_Y(df, "wt")
+extreme_on_Y(df)
 
 }
