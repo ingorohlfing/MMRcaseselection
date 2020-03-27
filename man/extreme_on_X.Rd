@@ -4,7 +4,7 @@
 \alias{extreme_on_X}
 \title{Extremeness of cases on an independent variable}
 \usage{
-extreme_on_X(lmobject, ind.var)
+extreme_on_X(lmobject, ind_var)
 }
 \arguments{
 \item{lmobject}{Object generated with \code{\link[stats]{lm}}}

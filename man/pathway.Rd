@@ -4,10 +4,11 @@
 \alias{pathway}
 \title{Pathway case}
 \usage{
-pathway(full.model, reduced.model)
+pathway(full_model, reduced_model)
 }
 \arguments{
-\item{full.model}{Full model including covariate of interest (=pathway variable)}
+\item{full.model}{Full model including covariate of interest
+(=pathway variable)}
 
 \item{reduced.model}{Reduced model excluding covariate of interest}
 }
@@ -35,8 +36,8 @@ analysis of mechanisms.
 }
 \details{
 The difference between the absolute residuals of the full and reduced model
-follows the approach developed by Weller and Barnes (2014):
-\emph{Finding Pathways: Mixed-Method Research for Studying Causal Mechanisms.}
+follows the approach developed by Weller and Barnes (2014): \emph{Finding
+Pathways: Mixed-Method Research for Studying Causal Mechanisms.}
 Cambridge: Cambridge University Press.
 \url{https://doi.org/10.1017/CBO9781139644501}).
 

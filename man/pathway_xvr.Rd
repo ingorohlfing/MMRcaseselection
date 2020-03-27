@@ -5,14 +5,15 @@
 \title{Plot of residuals against pathway variable}
 \usage{
 pathway_xvr(
-  full.model,
-  reduced.model,
-  pathway.var = "variable",
-  pathway.type = "residual"
+  full_model,
+  reduced_model,
+  pathway_var = "variable",
+  pathway_type = "residual"
 )
 }
 \arguments{
-\item{full.model}{Full model including covariate of interest (=pathway variable)}
+\item{full.model}{Full model including covariate of interest
+(=pathway variable)}
 
 \item{reduced.model}{Reduced model excluding covariate of interest}
 
@@ -23,8 +24,8 @@ pathway values proposed by Weller and Barnes. \code{pathway.g} are values
 as calculated by Gerring.}
 }
 \value{
-A plot of the chosen type of pathway values against the pathway variable
-created with \code{\link{ggplot2}}.
+A plot of the chosen type of pathway values against the pathway
+variable created with \code{\link{ggplot2}}.
 }
 \description{
 Plot of residuals against pathway variable
@@ -32,7 +33,7 @@ Plot of residuals against pathway variable
 \examples{
 df_full <- lm(mpg ~ disp + wt, data = mtcars)
 df_reduced <- lm(mpg ~ wt, data = mtcars)
-pathway_xvr(full.model, reduced.model, pathway.var = "disp",
-pathway.type = "pathway.wb")
+pathway_xvr(full_model, reduced_model, pathway_var = "disp",
+pathway_type = "pathway.wb")
 
 }

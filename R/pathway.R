@@ -74,15 +74,16 @@ pathway <- function(full_model, reduced_model) {
 
 #' Plot of residuals against pathway variable
 #'
-#' @param full.model Full model including covariate of interest (=pathway variable)
+#' @param full.model Full model including covariate of interest
+#' (=pathway variable)
 #' @param reduced.model Reduced model excluding covariate of interest
 #' @param pathway.var Pathway variable dropped from full model
 #' @param pathway.type Type of pathway values. \code{pathway.wb} are
 #' pathway values proposed by Weller and Barnes. \code{pathway.g} are values
 #' as calculated by Gerring.
 #'
-#' @return A plot of the chosen type of pathway values against the pathway variable
-#' created with \code{\link{ggplot2}}.
+#' @return A plot of the chosen type of pathway values against the pathway
+#' variable created with \code{\link{ggplot2}}.
 #'
 #' @examples
 #' df_full <- lm(mpg ~ disp + wt, data = mtcars)
@@ -92,7 +93,7 @@ pathway <- function(full_model, reduced_model) {
 #'
 #' @export
 pathway_xvr <- function(full_model, reduced_model,
-                        pathway_var = "variable", pathway_type = "residual"){
+                        pathway_var = "variable", pathway_type = "residual") {
   pwdf <- pathway(df_full, df_reduced)
   if (pathway_type == "pathway.wb") {
     pwplot <- ggplot2::ggplot() +
@@ -115,4 +116,3 @@ pathway_xvr <- function(full_model, reduced_model,
   }
   return(pwplot)
 }
-
