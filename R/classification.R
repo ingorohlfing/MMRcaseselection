@@ -29,9 +29,9 @@
 #' predint(df, piwidth = 0.9)
 #'
 #' @export
-predint <- function(lmobject, piwidth = 0.95){
-  if(class(lmobject) == "lm"){
-    if(piwidth >= 0 & piwidth <= 1){
+predint <- function(lmobject, piwidth = 0.95) {
+  if (class(lmobject) == "lm") {
+    if (piwidth >= 0 & piwidth <= 1) {
       # calculating prediction interval
       temp <- as.data.frame(suppressWarnings(predict.lm(df,
                                                         interval = "prediction",
@@ -47,11 +47,11 @@ predint <- function(lmobject, piwidth = 0.95){
       return(comb)
     }
     else{
-      stop('Prediction interval needs to be between 0 and 1')
+      stop("Prediction interval needs to be between 0 and 1")
     }
   }
   else{
-    stop('Input into function is not of class "lm"')
+    stop("Input into function is not of class lm")
   }
 }
 
@@ -76,8 +76,8 @@ predint <- function(lmobject, piwidth = 0.95){
 #' predint_plot(predint_status)
 #'
 #' @export
-predint_plot <- function(pred.df){
-  ggplot(data = pred.df) +
+predint_plot <- function(pred_df) {
+  ggplot(data = pred_df) +
     geom_point(mapping = aes(x = fit, y = outcome, color = status)) +
     # bisecting line
     geom_abline(intercept = 0, slope = 1, linetype = 5) +
@@ -115,9 +115,9 @@ predint_plot <- function(pred.df){
 #' resid_std(df, stdshare = 1)
 #'
 #' @export
-resid_std <- function(lmobject, stdshare = 1){
-  if(class(lmobject) == "lm"){
-    if(stdshare >= 0){
+resid_std <- function(lmobject, stdshare = 1) {
+  if (class(lmobject) == "lm") {
+    if (stdshare >= 0) {
       # calculating standard deviation of residuals
       tempsd <- as.data.frame(suppressWarnings(predict.lm(df, se.fit = T)))
       # removing irrelevant columns
@@ -127,17 +127,19 @@ resid_std <- function(lmobject, stdshare = 1){
       # merging outcome values into dataframe
       comb <- cbind(tempsd, outcome)
       # classification of cases
-      comb$status <- ifelse(comb$outcome < comb$fit-stdshare*comb$residual.scale|
-                              comb$outcome > comb$fit+stdshare*comb$residual.scale,
+      comb$status <- ifelse(comb$outcome <
+                              comb$fit - stdshare * comb$residual.scale |
+                              comb$outcome >
+                              comb$fit + stdshare * comb$residual.scale,
                             "deviant", "typical")
       return(comb)
       }
     else{
-      stop('Standard deviation should not be negative')
+      stop("Standard deviation should not be negative")
     }
   }
   else{
-    stop('Input into function is not of class "lm"')
+    stop("Input into function is not of class lm")
   }
 }
 
@@ -156,10 +158,10 @@ resid_std <- function(lmobject, stdshare = 1){
 #' residstd_plot(residstd_status)
 #'
 #' @export
-residstd_plot <- function(resid.df){
+residstd_plot <- function(resid_df) {
   # Calculation of upper and lower bounds
-  resid.df$lwr <- resid.df$fit-resid.df$residual.scale
-  resid.df$upr <- resid.df$fit+resid.df$residual.scale
+  resid_df$lwr <- resid_df$fit - resid_df$residual.scale
+  resid_df$upr <- resid_df$fit + resid_df$residual.scale
   ggplot(data = resid.df) +
     # lower bound
     geom_line(mapping = aes(x = fit, y = lwr), color = "grey") +

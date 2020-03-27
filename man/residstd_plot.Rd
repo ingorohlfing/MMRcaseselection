@@ -4,7 +4,7 @@
 \alias{residstd_plot}
 \title{Plot of typical and deviant cases based on residuals' standard deviation}
 \usage{
-residstd_plot(resid.df)
+residstd_plot(resid_df)
 }
 \arguments{
 \item{resid.df}{A dataframe created with \code{\link{resid_std}}.}

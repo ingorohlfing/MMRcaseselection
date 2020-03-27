@@ -4,7 +4,7 @@
 \alias{predint_plot}
 \title{Plot of typical and deviant cases based on prediction interval}
 \usage{
-predint_plot(pred.df)
+predint_plot(pred_df)
 }
 \arguments{
 \item{pred.df}{A dataframe created with \code{\link{predint}}.}
