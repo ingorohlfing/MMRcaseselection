@@ -50,17 +50,17 @@ pathway <- function(full_model, reduced_model) {
   if (class(full_model) == "lm") {
     if (class(reduced_model) == "lm") {
       # full model
-      full.resid <- residuals(full_model)
+      full_resid <- residuals(full_model)
       # reduced model
-      reduced.resid <- residuals(reduced_model)
+      reduced_resid <- residuals(reduced_model)
       # difference between absolute residuals
-      pathway.wb <- abs(reduced.resid) - abs(full.resid)
+      pathway_wb <- abs(reduced_resid) - abs(full_resid)
       # absolute difference between residuals
-      pathway.gvalue <- abs(reduced.resid - full.resid)
+      pathway_gvalue <- abs(reduced_resid - full_resid)
       # check for Gerring's criterion for pathway values
-      pathway.gtype <- ifelse(reduced.resid > full.resid, "yes", "no")
-      comb <- cbind(full_model$model, full.resid, reduced.resid,
-                    pathway.wb, pathway.gvalue, pathway.gtype)
+      pathway_gtype <- ifelse(reduced_resid > full_resid, "yes", "no")
+      comb <- cbind(full_model$model, full_resid, reduced_resid,
+                    pathway_wb, pathway_gvalue, pathway_gtype)
       return(comb)
     }
     else{
@@ -74,12 +74,12 @@ pathway <- function(full_model, reduced_model) {
 
 #' Plot of residuals against pathway variable
 #'
-#' @param full.model Full model including covariate of interest
-#' (=pathway variable)
-#' @param reduced.model Reduced model excluding covariate of interest
-#' @param pathway.var Pathway variable dropped from full model
-#' @param pathway.type Type of pathway values. \code{pathway.wb} are
-#' pathway values proposed by Weller and Barnes. \code{pathway.g} are values
+#' @param full_model Full model including covariate of interest
+#' (= pathway variable)
+#' @param reduced-model Reduced model excluding covariate of interest
+#' @param pathway_var Pathway variable dropped from full model
+#' @param pathway_type Type of pathway values. \code{pathway_wb} are
+#' pathway values proposed by Weller and Barnes. \code{pathway_g} are values
 #' as calculated by Gerring.
 #'
 #' @return A plot of the chosen type of pathway values against the pathway
@@ -89,7 +89,7 @@ pathway <- function(full_model, reduced_model) {
 #' df_full <- lm(mpg ~ disp + wt, data = mtcars)
 #' df_reduced <- lm(mpg ~ wt, data = mtcars)
 #' pathway_xvr(full_model, reduced_model, pathway_var = "disp",
-#' pathway_type = "pathway.wb")
+#' pathway_type = "pathway_wb")
 #'
 #' @export
 pathway_xvr <- function(full_model, reduced_model,
@@ -107,7 +107,7 @@ pathway_xvr <- function(full_model, reduced_model,
     pwplot <- ggplot2::ggplot() +
       geom_point(data = pwdf, mapping = aes_string(x = pathway_var,
                                                    y = pathway_type,
-                                                   color = "pathway.gtype")) +
+                                                   color = "pathway_gtype")) +
       geom_hline(yintercept = 0, linetype = 5) +
       scale_y_continuous("Pathway values") +
       scale_color_viridis_d("Reduced > full residuals") +

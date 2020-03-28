@@ -31,15 +31,15 @@
 #'
 #' @examples
 #' df <- lm(mpg ~ disp + wt, data = mtcars)
-#' extreme_on_X(df, "wt")
+#' extreme_on_x(df, "wt")
 #'
 #' @export
-extreme_on_X <- function(lmobject, ind_var) {
+extreme_on_x <- function(lmobject, ind_var) {
   if (class(lmobject) == "lm") {
-    tempX <- lmobject$model[, ind_var]
+    tempx <- lmobject$model[, ind_var]
     tempdf <- lmobject$model
-    tempdf$`abs. extremeness` <- abs(tempX - mean(tempX))
-    tempdf$extremeness <- tempX - mean(tempX)
+    tempdf$`abs. extremeness` <- abs(tempx - mean(tempx))
+    tempdf$extremeness <- tempx - mean(tempx)
     tempdf <- tempdf[order(tempdf$`abs. extremeness`, decreasing = T), ]
     return(tempdf)
   }
@@ -75,17 +75,17 @@ extreme_on_X <- function(lmobject, ind_var) {
 #'
 #' @examples
 #' df <- lm(mpg ~ disp + wt, data = mtcars)
-#' extreme_on_Y(df)
+#' extreme_on_y(df)
 #'
 #' @importFrom stats lm
 #'
 #' @export
-extreme_on_Y <- function(lmobject) {
+extreme_on_y <- function(lmobject) {
   if (class(lmobject) == "lm") {
-    tempY <- lmobject$model[, 1]
+    tempy <- lmobject$model[, 1]
     tempdf <- lmobject$model
-    tempdf$`abs. extremeness` <- abs(tempY - mean(tempY))
-    tempdf$extremeness <- tempY - mean(tempY)
+    tempdf$`abs. extremeness` <- abs(tempy - mean(tempy))
+    tempdf$extremeness <- tempy - mean(tempy)
     tempdf <- tempdf[order(tempdf$`abs. extremeness`, decreasing = T), ]
     return(tempdf)
   }
