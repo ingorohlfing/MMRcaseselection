@@ -36,16 +36,16 @@ pw_out <- pathway(df_full, df_reduced) # calculation of pathway variables
 head(pw_out)
 ```
 
-The visualization of pathway values is different from the presentation of ordinary residuals because two models are involved and an observed-vs-fitted plot is not feasible. Following the approach by Weller and Barnes, the `pathway_xvr()` function allows users to the plot the pathway values against the pathway variable. The option `pathwaytype = "pathway.wb` produces a plot for the Weller/Barnes values. The option `pathway.var` specifies the pathway variable to be included in the plot. The plot is `gg` object that can be customized with the usual `ggplot2` options.
+The visualization of pathway values is different from the presentation of ordinary residuals because two models are involved and an observed-vs-fitted plot is not feasible. Following the approach by Weller and Barnes, the `pathway_xvr()` function allows users to the plot the pathway values against the pathway variable. The option `pathwaytype = "pathway_wb` produces a plot for the Weller/Barnes values. The option `pathway_var` specifies the pathway variable to be included in the plot. The plot is `gg` object that can be customized with the usual `ggplot2` options.
 ```{r, fig.height = 6, fig.width = 6}
-pathway_xvr(full.model, reduced.model, 
-            pathway.var = "disp", 
-            pathway.type = "pathway.wb")
+pathway_xvr(full_model, reduced_model, 
+            pathway_var = "disp", 
+            pathway_type = "pathway_wb")
 ```
 
-If the option is `pathway.type = "pathway.gvalue"`, the Gerring pathway values are plotted against the pathway variable. A color scheme is used to distinguish the cases that meet the pathway case requirement ("yes") from those that don't ("no"). 
+If the option is `pathway_type = "pathway_gvalue"`, the Gerring pathway values are plotted against the pathway variable. A color scheme is used to distinguish the cases that meet the pathway case requirement ("yes") from those that don't ("no"). 
 ```{r, fig.height = 6, fig.width = 6}
-pathway_xvr(full.model, reduced.model, 
-            pathway.var = "disp", 
-            pathway.type = "pathway.gvalue")
+pathway_xvr(full_model, reduced_model, 
+            pathway_var = "disp", 
+            pathway_type = "pathway_gvalue")
 ```
