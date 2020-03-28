@@ -7,7 +7,7 @@
 predint_plot(pred_df)
 }
 \arguments{
-\item{pred.df}{A dataframe created with \code{\link{predint}}.}
+\item{pred_df}{A dataframe created with \code{\link{predint}}.}
 }
 \value{
 A plot of the observed outcome against the fitted outcome with

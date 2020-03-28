@@ -11,7 +11,7 @@
 #' (\url{https://doi.org/10.1177/0049124116643556})
 #'
 #' @param lmobject Object generated with \code{\link[stats]{lm}}
-#' @param ind.var Independent variable for which extremeness values should
+#' @param ind_var Independent variable for which extremeness values should
 #' be calculated. Has to be entered as a character value.
 #'
 #' @return A dataframe with

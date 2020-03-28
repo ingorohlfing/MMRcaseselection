@@ -15,13 +15,13 @@ pathway_xvr(
 \item{full_model}{Full model including covariate of interest
 (= pathway variable)}
 
+\item{reduced_model}{Reduced model excluding covariate of interest}
+
 \item{pathway_var}{Pathway variable dropped from full model}
 
 \item{pathway_type}{Type of pathway values. \code{pathway_wb} are
 pathway values proposed by Weller and Barnes. \code{pathway_g} are values
 as calculated by Gerring.}
-
-\item{reduced-model}{Reduced model excluding covariate of interest}
 }
 \value{
 A plot of the chosen type of pathway values against the pathway

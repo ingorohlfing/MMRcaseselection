@@ -62,7 +62,7 @@ predint <- function(lmobject, piwidth = 0.95) {
 #' \emph{Swiss Political Science Review} 19 (4): 492-512.
 #' (\url{https://doi.org/10.1111/spsr.12052})
 #'
-#' @param pred.df A dataframe created with \code{\link{predint}}.
+#' @param pred_df A dataframe created with \code{\link{predint}}.
 #'
 #' @return A plot of the observed outcome against the fitted outcome with
 #' prediction intervals and case classifications. Created with

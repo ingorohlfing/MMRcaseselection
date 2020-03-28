@@ -19,9 +19,9 @@
 #' Crucial-Case Method? \emph{Comparative Political Studies} 40 (3): 231-253.
 #' \url{https://journals.sagepub.com/doi/10.1177/0010414006290784})
 #'
-#' @param full.model Full model including covariate of interest
+#' @param full_model Full model including covariate of interest
 #' (=pathway variable)
-#' @param reduced.model Reduced model excluding covariate of interest
+#' @param reduced_model Reduced model excluding covariate of interest
 #'
 #' @return A dataframe with
 #'
@@ -76,7 +76,7 @@ pathway <- function(full_model, reduced_model) {
 #'
 #' @param full_model Full model including covariate of interest
 #' (= pathway variable)
-#' @param reduced-model Reduced model excluding covariate of interest
+#' @param reduced_model Reduced model excluding covariate of interest
 #' @param pathway_var Pathway variable dropped from full model
 #' @param pathway_type Type of pathway values. \code{pathway_wb} are
 #' pathway values proposed by Weller and Barnes. \code{pathway_g} are values

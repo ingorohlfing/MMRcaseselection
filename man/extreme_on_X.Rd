@@ -9,7 +9,7 @@ extreme_on_x(lmobject, ind_var)
 \arguments{
 \item{lmobject}{Object generated with \code{\link[stats]{lm}}}
 
-\item{ind.var}{Independent variable for which extremeness values should
+\item{ind_var}{Independent variable for which extremeness values should
 be calculated. Has to be entered as a character value.}
 }
 \value{

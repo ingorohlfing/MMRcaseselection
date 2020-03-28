@@ -7,10 +7,10 @@
 pathway(full_model, reduced_model)
 }
 \arguments{
-\item{full.model}{Full model including covariate of interest
+\item{full_model}{Full model including covariate of interest
 (=pathway variable)}
 
-\item{reduced.model}{Reduced model excluding covariate of interest}
+\item{reduced_model}{Reduced model excluding covariate of interest}
 }
 \value{
 A dataframe with
