@@ -145,7 +145,7 @@ resid_std <- function(lmobject, stdshare = 1) {
 
 #' Plot of typical and deviant cases based on residuals' standard deviation
 #'
-#' @param resid.df A dataframe created with \code{\link{resid_std}}.
+#' @param resid_df A dataframe created with \code{\link{resid_std}}.
 #'
 #' @return A plot of the observed outcome against the fitted outcome with
 #' interval and case classifications. Created with \code{\link{ggplot2}}.
@@ -162,7 +162,7 @@ residstd_plot <- function(resid_df) {
   # Calculation of upper and lower bounds
   resid_df$lwr <- resid_df$fit - resid_df$residual.scale
   resid_df$upr <- resid_df$fit + resid_df$residual.scale
-  ggplot(data = resid.df) +
+  ggplot(data = resid_df) +
     # lower bound
     geom_line(mapping = aes(x = fit, y = lwr), color = "grey") +
     # upper bound
