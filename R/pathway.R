@@ -95,7 +95,7 @@ pathway <- function(full_model, reduced_model) {
 pathway_xvr <- function(full_model, reduced_model,
                         pathway_var = "variable", pathway_type = "residual") {
   pwdf <- pathway(df_full, df_reduced)
-  if (pathway_type == "pathway.wb") {
+  if (pathway_type == "pathway_wb") {
     pwplot <- ggplot2::ggplot() +
       geom_point(data = pwdf, mapping = aes_string(x = pathway_var,
                                                    y = pathway_type)) +
