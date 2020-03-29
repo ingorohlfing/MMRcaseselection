@@ -23,7 +23,7 @@ library(ggplot2) # for illustration of plot customization
 
 The classification (designation, assignment) of cases as typical and deviant (or another) type needs to be distinguished from the actual choice of cases belonging to a specific type. The package offers two ways of classifying cases. First, one can designate cases using an % *prediction interval* or the *standard deviation of the residuals*. Both classification techniques require an `lm` object as input. 
 
-The approach using the prediction interval additionally requires the specification of the width of the interval. The % prediction interval represents the range of outcome values within which 95% of future outcome values are expected to fall. Following Rohlfing and Starke, a case is designated as typical if the observed outcome value is inside the interval and as deviant otherwise. Here is a simple example using the in-built `mtcars` dataset and a 90% prediction interval. The output of the function is a dataframe with the observed and fitted outcome value, the upper and lower bound of the prediction interval and the case status based on the fitted value and the prediction interval. 
+The approach using the prediction interval additionally requires the specification of the width of the interval. The % prediction interval represents the range of outcome values within which 95% of future outcome values are expected to fall. Following Rohlfing and Starke ([2013](https://doi.org/10.1111/spsr.12052)), a case is designated as typical if the observed outcome value is inside the interval and as deviant otherwise. Here is a simple example using the in-built `mtcars` dataset and a 90% prediction interval. The output of the function is a dataframe with the observed and fitted outcome value, the upper and lower bound of the prediction interval and the case status based on the fitted value and the prediction interval. The default value is 0.9 (for no specific reason).
 ```{r}
 df <- lm(mpg ~ disp + wt, data = mtcars)
 pi_df <- predint(df, piwidth = 0.9)
@@ -39,7 +39,7 @@ predint_plot(pi_df)
 predint_plot(pi_df) + scale_color_brewer()
 ```
 
-An alternative classification technique uses the *standard deviation of the residuals*. The command for assigning cases and typical and deviant is `resid_std()`. The input is an `lm` object and `stdshare` determines how large the share of the residual standard deviation should be to distinguish typical from deviant cases.
+An alternative classification technique following Lieberman ([2005](https://doi.org/10.1017/S0003055405051762)) uses the *standard deviation of the residuals*. The command for assigning cases and typical and deviant is `resid_std()`. The input is an `lm` object and `stdshare` determines how large the share of the residual standard deviation should be to distinguish typical from deviant cases. The default value is 1 (for no specific reason).
 ```{r}
 resid_df <- resid_std(df, stdshare = 1.5)
 head(resid_df)
