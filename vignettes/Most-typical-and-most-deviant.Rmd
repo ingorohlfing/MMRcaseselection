@@ -20,19 +20,19 @@ knitr::opts_chunk$set(
 library(MMRcaseselection)
 ```
 
-One can use four functions to choose four types of cases without classifying all cases as either typical or deviant. The most typical and deviant cases are proposed by Seawright and Gerring ([2008](https://doi.org/10.1177%2F1065912907313077])). 
+One can use four functions to choose four *types of cases* without classifying all cases as either typical or deviant. The most typical and deviant cases are proposed by Seawright and Gerring ([2008](https://doi.org/10.1177%2F1065912907313077])). 
 
 * The most typical case has the smallest residual of all cases.
 * The most deviant case has the largest residual of all cases.
 
-The two functions `most_typical()` and `most_deviant()` work in the same way and have as output the case with its residual. The only required input is the result of a linear regression analysis (an `lm` object).
+The two functions `most_typical()` and `most_deviant()` work in the same way and output the case with its residual. The only required input is the result of a linear regression analysis as an `lm` object.
 ```{r}
 df <- lm(mpg ~ disp + wt, data = mtcars)
 most_typical(df)
 most_deviant(df)
 ```
 
-The most deviant case does not distinguish between cases that have a large negative or large positive residuals. Cases with a large negative residual are *overpredicted* because the predicted outcome is much higher than the observed outcome. Cases with a large positive residual are *underpredicted* because the predicted outcome is much lower than the observed outcome. It might not matter whether a case is overpredicted or underpredicted because both subtypes of outliers can have the same type of deviance. However, one might be interested in knowing whether a case has a large positive or a large negative residual to treat them on their own ground (I know from teaching that participants more often than not make a distinction between under- and overpredicted cases). The functions `most_overpredicted()` and `most_underpredicted()` show what the deviant cases with the largest positive and negative residuals are.
+The most deviant case does not distinguish between cases that have a large negative or a large positive residual. Cases with a large negative residual are *overpredicted* because the predicted outcome is much higher than the observed outcome. Cases with a large positive residual are *underpredicted* because the predicted outcome is much lower than the observed outcome. It might not matter whether a case is overpredicted or underpredicted because both subtypes of outliers can have the same type of deviance. However, one might be interested in knowing whether a case has a large positive or a large negative residual to treat them on their own ground. The functions `most_overpredicted()` and `most_underpredicted()` show what the deviant cases with the largest positive and negative residuals are.
 ```{r}
 # largest positive residual
 most_underpredicted(df)
