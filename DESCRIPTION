@@ -1,7 +1,6 @@
 Package: MMRcaseselection
 Type: Package
 Title: Case Classification and Choice Based on Regression Results
-Date: 2020-03-22
 Version: 0.0.0.9000
 Authors@R: 
     person("Ingo", "Rohlfing", email = "i.rohlfing@uni-koeln.de",
