@@ -33,7 +33,7 @@ predint <- function(lmobject, piwidth = 0.95) {
   if (class(lmobject) == "lm") {
     if (piwidth >= 0 & piwidth <= 1) {
       # calculating prediction interval
-      temp <- as.data.frame(suppressWarnings(predict.lm(df,
+      temp <- as.data.frame(suppressWarnings(predict.lm(lmobject,
                                                         interval = "prediction",
                                                         level = piwidth)))
       # extracting outcome values
