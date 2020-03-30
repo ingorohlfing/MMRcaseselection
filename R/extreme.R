@@ -12,7 +12,7 @@
 #'
 #' @param lmobject Object generated with \code{\link[stats]{lm}}
 #' @param ind_var Independent variable for which extremeness values should
-#' be calculated. Has to be entered as a character value.
+#' be calculated. Has to be entered as a character variable.
 #'
 #' @return A dataframe with
 #'
@@ -34,17 +34,22 @@
 #' extreme_on_x(df, "wt")
 #'
 #' @export
-extreme_on_x <- function(lmobject, ind_var) {
-  if (class(lmobject) == "lm") {
-    tempx <- lmobject$model[, ind_var]
-    tempdf <- lmobject$model
-    tempdf$`abs. extremeness` <- abs(tempx - mean(tempx))
-    tempdf$extremeness <- tempx - mean(tempx)
-    tempdf <- tempdf[order(tempdf$`abs. extremeness`, decreasing = T), ]
-    return(tempdf)
+extreme_on_x <- function(lmobject = NULL, ind_var = NULL) {
+  if (!is.null(ind_var)) {
+    if (class(lmobject) == "lm") {
+      tempx <- lmobject$model[, ind_var]
+      tempdf <- lmobject$model
+      tempdf$`abs. extremeness` <- abs(tempx - mean(tempx))
+      tempdf$extremeness <- tempx - mean(tempx)
+      tempdf <- tempdf[order(tempdf$`abs. extremeness`, decreasing = T), ]
+      return(tempdf)
+    }
+    else{
+      stop("lmobject input into function is not of class lm")
+    }
   }
   else{
-    stop("lmobject input into function is not of class lm")
+    stop("Please specify the independent variable")
   }
 }
 

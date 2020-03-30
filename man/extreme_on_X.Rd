@@ -4,13 +4,13 @@
 \alias{extreme_on_x}
 \title{Extremeness of cases on an independent variable}
 \usage{
-extreme_on_x(lmobject, ind_var)
+extreme_on_x(lmobject = NULL, ind_var = NULL)
 }
 \arguments{
 \item{lmobject}{Object generated with \code{\link[stats]{lm}}}
 
 \item{ind_var}{Independent variable for which extremeness values should
-be calculated. Has to be entered as a character value.}
+be calculated. Has to be entered as a character variable.}
 }
 \value{
 A dataframe with
