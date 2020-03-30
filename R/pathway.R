@@ -58,7 +58,7 @@ pathway <- function(full_model, reduced_model) {
       # absolute difference between residuals
       pathway_gvalue <- abs(reduced_resid - full_resid)
       # check for Gerring's criterion for pathway values
-      pathway_gtype <- ifelse(reduced_resid > full_resid, "yes", "no")
+      pathway_gtype <- ifelse(abs(reduced_resid) > abs(full_resid), "yes", "no")
       comb <- cbind(full_model$model, full_resid, reduced_resid,
                     pathway_wb, pathway_gvalue, pathway_gtype)
       return(comb)
