@@ -88,13 +88,13 @@ pathway <- function(full_model, reduced_model) {
 #' @examples
 #' df_full <- lm(mpg ~ disp + wt, data = mtcars)
 #' df_reduced <- lm(mpg ~ wt, data = mtcars)
-#' pathway_xvr(full_model, reduced_model, pathway_var = "disp",
+#' pathway_xvr(df_full, df_reduced, pathway_var = "disp",
 #' pathway_type = "pathway_wb")
 #'
 #' @export
 pathway_xvr <- function(full_model, reduced_model,
                         pathway_var = "variable", pathway_type = "residual") {
-  pwdf <- pathway(df_full, df_reduced)
+  pwdf <- pathway(full_model, reduced_model)
   if (pathway_type == "pathway_wb") {
     pwplot <- ggplot2::ggplot() +
       geom_point(data = pwdf, mapping = aes_string(x = pathway_var,

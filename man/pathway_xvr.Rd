@@ -33,7 +33,7 @@ Plot of residuals against pathway variable
 \examples{
 df_full <- lm(mpg ~ disp + wt, data = mtcars)
 df_reduced <- lm(mpg ~ wt, data = mtcars)
-pathway_xvr(full_model, reduced_model, pathway_var = "disp",
+pathway_xvr(df_full, df_reduced, pathway_var = "disp",
 pathway_type = "pathway_wb")
 
 }
