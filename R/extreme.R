@@ -35,21 +35,22 @@
 #'
 #' @export
 extreme_on_x <- function(lmobject = NULL, ind_var = NULL) {
-  if (!is.null(ind_var)) {
-    if (class(lmobject) == "lm") {
-      tempx <- lmobject$model[, ind_var]
-      tempdf <- lmobject$model
-      tempdf$`abs. extremeness` <- abs(tempx - mean(tempx))
-      tempdf$extremeness <- tempx - mean(tempx)
-      tempdf <- tempdf[order(tempdf$`abs. extremeness`, decreasing = T), ]
-      return(tempdf)
-    }
-    else{
-      stop("lmobject input into function is not of class lm")
-    }
+  if (is.null(ind_var)) {
+    stop("Please specify the independent variable")
+  }
+  if (class(lmobject) != "lm") {
+    stop("lmobject input into function is not of class lm")
+  }
+  if (isFALSE(ind_var %in% names(lmobject$model[, 2:ncol(lmobject$model)]))) {
+    stop("Chosen ind_var is not among the independent variables")
   }
   else{
-    stop("Please specify the independent variable")
+    tempx <- lmobject$model[, ind_var]
+    tempdf <- lmobject$model
+    tempdf$`abs. extremeness` <- abs(tempx - mean(tempx))
+    tempdf$extremeness <- tempx - mean(tempx)
+    tempdf <- tempdf[order(tempdf$`abs. extremeness`, decreasing = T), ]
+    return(tempdf)
   }
 }
 
