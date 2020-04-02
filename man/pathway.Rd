@@ -17,16 +17,16 @@ A dataframe with
 
 - all full model variables,
 
-- full model residuals (\code{full.resid}),
+- full model residuals (\code{full_resid}),
 
-- reduced model residuals (\code{reduced.resid}),
+- reduced model residuals (\code{reduced_resid}),
 
-- pathway values following Weller/Barnes (\code{pathway.wb}),
+- pathway values following Weller/Barnes (\code{pathway_wb}),
 
-- pathway values following Gerring (\code{pathway.gvalue}),
+- pathway values following Gerring (\code{pathway_gvalue}),
 
 - variable showing whether Gerring's criterion for a pathway
-case is met (\code{pathway.gstatus})
+case is met (\code{pathway_gstatus})
 }
 \description{
 Calculation of pathway values, defined as the difference between residuals of

@@ -27,16 +27,16 @@
 #'
 #' - all full model variables,
 #'
-#' - full model residuals (\code{full.resid}),
+#' - full model residuals (\code{full_resid}),
 #'
-#' - reduced model residuals (\code{reduced.resid}),
+#' - reduced model residuals (\code{reduced_resid}),
 #'
-#' - pathway values following Weller/Barnes (\code{pathway.wb}),
+#' - pathway values following Weller/Barnes (\code{pathway_wb}),
 #'
-#' - pathway values following Gerring (\code{pathway.gvalue}),
+#' - pathway values following Gerring (\code{pathway_gvalue}),
 #'
 #' - variable showing whether Gerring's criterion for a pathway
-#' case is met (\code{pathway.gstatus})
+#' case is met (\code{pathway_gstatus})
 #'
 #' @importFrom stats lm residuals
 #'
@@ -77,10 +77,9 @@ pathway <- function(full_model, reduced_model) {
 #' @param full_model Full model including covariate of interest
 #' (= pathway variable)
 #' @param reduced_model Reduced model excluding covariate of interest
-#' @param pathway_var Pathway variable dropped from full model
 #' @param pathway_type Type of pathway values. \code{pathway_wb} are
-#' pathway values proposed by Weller and Barnes. \code{pathway_g} are values
-#' as calculated by Gerring.
+#' pathway values proposed by Weller and Barnes. \code{pathway_gvalue}
+#' are values as calculated by Gerring.
 #'
 #' @return A plot of the chosen type of pathway values against the pathway
 #' variable created with \code{\link{ggplot2}}.
@@ -88,26 +87,28 @@ pathway <- function(full_model, reduced_model) {
 #' @examples
 #' df_full <- lm(mpg ~ disp + wt, data = mtcars)
 #' df_reduced <- lm(mpg ~ wt, data = mtcars)
-#' pathway_xvr(df_full, df_reduced, pathway_var = "disp",
-#' pathway_type = "pathway_wb")
+#' pathway_xvr(df_full, df_reduced, pathway_type = "pathway_wb")
 #'
 #' @export
-pathway_xvr <- function(full_model, reduced_model,
-                        pathway_var = "variable", pathway_type = "residual") {
+pathway_xvr <- function(full_model, reduced_model, pathway_type) {
   pwdf <- pathway(full_model, reduced_model)
   if (pathway_type == "pathway_wb") {
     pwplot <- ggplot2::ggplot() +
-      geom_point(data = pwdf, mapping = aes_string(x = pathway_var,
-                                                   y = pathway_type)) +
+      geom_point(data = pwdf,
+                 mapping = aes_string(x = setdiff(names(full_model$model),
+                                                  names(reduced_model$model)),
+                                      y = pathway_type)) +
       geom_hline(yintercept = 0, linetype = 5) +
       scale_y_continuous("Pathway values") +
       theme_classic() -> pwplot
   }
   else{
     pwplot <- ggplot2::ggplot() +
-      geom_point(data = pwdf, mapping = aes_string(x = pathway_var,
-                                                   y = pathway_type,
-                                                   color = "pathway_gtype")) +
+      geom_point(data = pwdf,
+                 mapping = aes_string(x = setdiff(names(full_model$model),
+                                                  names(reduced_model$model)),
+                                      y = pathway_type,
+                                      color = "pathway_gtype")) +
       geom_hline(yintercept = 0, linetype = 5) +
       scale_y_continuous("Pathway values") +
       scale_color_viridis_d("Reduced > full residuals") +
