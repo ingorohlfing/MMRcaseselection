@@ -3,8 +3,8 @@
 #'
 #' Case are designated as typical (= well predicted) and deviant
 #' (= badly predicted) based on the prediction interval. The x\% prediction
-#' interval represents the range of outcome values that we expect to include
-#' x\% of outcome values in future repeated samples. For example, a 95\%
+#' interval represents the range that we expect to include
+#' x\% of outcome values in repeated samples. For example, a 95\%
 #' prediction interval ranging from 0-5 conveys that 95\% of future outcome
 #' values will be in the range of 0-5. If the observed outcome
 #' is inside the prediction interval, the case is classified (or designated) as
@@ -16,7 +16,7 @@
 #' (\url{https://doi.org/10.1111/spsr.12052})
 #'
 #' @param lmobject Object generated with \code{\link[stats]{lm}}
-#' @param piwidth Width of the prediction interval.
+#' @param piwidth Width of the prediction interval (default is 0.95).
 #'
 #' @return A dataframe with the observed outcome, fitted outcome,
 #' upper and lower bound of the \% prediction interval and classification
@@ -55,7 +55,7 @@ predint <- function(lmobject, piwidth = 0.95) {
   }
 }
 
-#' Plot of typical and deviant cases based on prediction interval
+#' Plot of typical and deviant cases with prediction intervals
 #'
 #' Presented in Rohlfing, Ingo and Peter Starke (2013):
 #' Building on Solid Ground: Robust Case Selection in Multi-Method Research.
@@ -102,7 +102,7 @@ predint_plot <- function(pred_df) {
 #'
 #' @param lmobject Object generated with \code{\link[stats]{lm}}
 #' @param stdshare Share of standard deviation of residuals distinguishing
-#' between typical and deviant cases.
+#' between typical and deviant cases (default is 1).
 #'
 #' @return A dataframe with the observed outcome, fitted outcome,
 #' residual standard deviation and classification of cases as typical
