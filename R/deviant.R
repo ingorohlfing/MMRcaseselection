@@ -1,5 +1,3 @@
-
-
 #' Identification of the most deviant case
 #'
 #' Identification of the most deviant case (= worst predicted case),
@@ -13,7 +11,7 @@
 #'
 #' @param lmobject Object generated with \code{\link[stats]{lm}}
 #'
-#' @return The most deviant case having the largest absolute
+#' @return The most deviant case with the largest absolute
 #' residual of all cases.
 #'
 #' @importFrom stats lm residuals
