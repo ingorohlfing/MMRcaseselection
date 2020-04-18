@@ -9,11 +9,9 @@ Authors@R:
 Depends: R (>= 2.10)          
 Description: Researchers doing a mixed-methods analysis (nested analysis) can
     use the package for two purposes. The package allows one to designate 
-    cases as typical, deviant or diverse. Second, one can use different
-    case selection strategies for choosing typical, deviant or diverse
-    cases. The documentations of the case designation and selection 
-    functions contain references to the articles or books proposing
-    developing the guidelines implemented in this package.
+    cases as typical, deviant or extreme. Second, one can use different
+    case selection strategies for choosing typical, deviant and extreme
+    cases.
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
