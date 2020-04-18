@@ -11,7 +11,7 @@ resid_std(lmobject, stdshare = 1)
 \item{lmobject}{Object generated with \code{\link[stats]{lm}}}
 
 \item{stdshare}{Share of standard deviation of residuals distinguishing
-between typical and deviant cases.}
+between typical and deviant cases (default is 1).}
 }
 \value{
 A dataframe with the observed outcome, fitted outcome,

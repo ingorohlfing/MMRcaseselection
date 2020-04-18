@@ -2,7 +2,7 @@
 % Please edit documentation in R/classification.R
 \name{predint_plot}
 \alias{predint_plot}
-\title{Plot of typical and deviant cases based on prediction interval}
+\title{Plot of typical and deviant cases with prediction intervals}
 \usage{
 predint_plot(pred_df)
 }
