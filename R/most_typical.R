@@ -2,7 +2,7 @@
 
 #' Identification of the most typical case
 #'
-#' Te most typical case (= best predicted case) based on regression estimates.
+#' The most typical case (= best predicted case) based on regression estimates.
 #'
 #' Proposed by Seawright, Jason and John Gerring (2008):
 #' Case Selection Techniques in Case Study Research: A Menu of
