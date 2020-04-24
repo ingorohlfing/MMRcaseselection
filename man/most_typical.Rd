@@ -14,7 +14,7 @@ The most typical case having the smallest absolute
 residual of all cases.
 }
 \description{
-Te most typical case (= best predicted case) based on regression estimates.
+The most typical case (= best predicted case) based on regression estimates.
 }
 \details{
 Proposed by Seawright, Jason and John Gerring (2008):

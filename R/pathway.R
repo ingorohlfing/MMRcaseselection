@@ -13,14 +13,15 @@
 #' Cambridge: Cambridge University Press.
 #' \url{https://doi.org/10.1017/CBO9781139644501}).
 #'
-#' The calculation of the absolute difference between the full and reduced model
-#' if the reduced-model residual is larger than the full-model residual follows
-#' the original proposal by Gerring (2007): Is There a (Viable)
-#' Crucial-Case Method? \emph{Comparative Political Studies} 40 (3): 231-253.
+#' The calculation of the absolute difference between the full-model and
+#' reduced-model residuals, given a case's reduced-model residual is larger
+#' than its full-model residual, follows the proposal by
+#' Gerring (2007): Is There a (Viable) Crucial-Case Method?
+#' \emph{Comparative Political Studies} 40 (3): 231-253.
 #' \url{https://journals.sagepub.com/doi/10.1177/0010414006290784})
 #'
 #' @param full_model Full model including covariate of interest
-#' (=pathway variable)
+#' (= pathway variable)
 #' @param reduced_model Reduced model excluding covariate of interest
 #'
 #' @return A dataframe with
@@ -83,6 +84,8 @@ pathway <- function(full_model, reduced_model) {
 #'
 #' @return A plot of the chosen type of pathway values against the pathway
 #' variable created with \code{\link{ggplot2}}.
+#'
+#' @import ggplot2
 #'
 #' @examples
 #' df_full <- lm(mpg ~ disp + wt, data = mtcars)
