@@ -10,7 +10,7 @@ most_deviant(lmobject)
 \item{lmobject}{Object generated with \code{\link[stats]{lm}}}
 }
 \value{
-The most deviant case having the largest absolute
+The most deviant case with the largest absolute
 residual of all cases.
 }
 \description{

@@ -12,7 +12,7 @@
 #'
 #' @param lmobject Object generated with \code{\link[stats]{lm}}
 #' @param ind_var Independent variable for which extremeness values should
-#' be calculated. Has to be entered as a character variable.
+#' be calculated. Has to be entered as a character.
 #'
 #' @return A dataframe with
 #'
@@ -27,7 +27,6 @@
 #' The rows are ordered in decreasing order of the absolute extreme values.
 #'
 #' @importFrom stats lm
-#'
 #'
 #' @examples
 #' df <- lm(mpg ~ disp + wt, data = mtcars)
