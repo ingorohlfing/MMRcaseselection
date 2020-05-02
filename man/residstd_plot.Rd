@@ -18,7 +18,7 @@ Plot of typical and deviant cases based on residuals' standard deviation
 }
 \examples{
 df <- lm(mpg ~ disp + wt, data = mtcars)
-residstd_status <- resid_std(df, stdshare = 1)
+residstd_status <- residstd(df, stdshare = 1)
 residstd_plot(residstd_status)
 
 }
