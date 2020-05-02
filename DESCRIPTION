@@ -10,8 +10,8 @@ Depends: R (>= 2.10)
 Description: Researchers doing a mixed-methods analysis (nested analysis) can
     use the package for the classication of cases and case selection using
     results of a linear regression as the basis. One can designate cases 
-    as typical, deviant or extreme and use different case selection 
-    strategies for typical, deviant and extreme cases.
+    as typical, deviant, extreme and pathway case and use different case 
+    selection strategies for the choice of a case belonging to these types.
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
