@@ -11,6 +11,7 @@ The package has not been submitted to CRAN yet. If you want to use it, please in
 ```r
 devtools::install_github("ingorohlfing/MMRcaseselection")
 ```
+The documentation of the package and examples can be found [here](https://ingorohlfing.github.io/MMRcaseselection/docs/).
 
 ***
 
