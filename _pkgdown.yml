@@ -10,16 +10,16 @@ reference:
 - title: "Classification of cases"
   desc: Functions for designating cases as belonging to a specific type
 - contents:
-  - extreme_on_X
-  - extreme_on_Y
+  - extreme_on_x
+  - extreme_on_y
   - pathway
   - predint
-  - resid_std
+  - residstd
 - title: "Selection of cases"
   desc: Functions for choosing cases belonging to a specific type
 - contents:
-  - extreme_on_X
-  - extreme_on_Y
+  - extreme_on_x
+  - extreme_on_y
   - most_deviant
   - most_overpredicted
   - most_typical
