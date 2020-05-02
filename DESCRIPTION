@@ -1,6 +1,6 @@
 Package: MMRcaseselection
 Type: Package
-Title: Case Classification and Choice Based on Regression Results
+Title: Case Classification and Selection Based on Regression Results
 Version: 0.0.0.9000
 Authors@R: 
     person("Ingo", "Rohlfing", email = "i.rohlfing@uni-koeln.de",
@@ -8,10 +8,10 @@ Authors@R:
            comment = c(ORCID = "0000-0001-8715-4771"))
 Depends: R (>= 2.10)          
 Description: Researchers doing a mixed-methods analysis (nested analysis) can
-    use the package for two purposes. The package allows one to designate 
-    cases as typical, deviant or extreme. Second, one can use different
-    case selection strategies for choosing typical, deviant and extreme
-    cases.
+    use the package for the classication of cases and case selection using
+    results of a linear regression as the basis. One can designate cases 
+    as typical, deviant or extreme and use different case selection 
+    strategies for typical, deviant and extreme cases.
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
