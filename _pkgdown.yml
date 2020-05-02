@@ -1,0 +1,34 @@
+destination: docs
+
+url: https://ingorohlfing.github.io/MMRcaseselection/
+
+authors:
+  Ingo Rohlfing_
+    href: https://ingorohlfing.wordpress.com
+
+reference:
+- title: "Classification of cases"
+  desc: Functions for designating cases as belonging to a specific type
+- contents:
+  - extreme_on_X
+  - extreme_on_Y
+  - pathway
+  - predint
+  - resid_std
+- title: "Selection of cases"
+  desc: Functions for choosing cases belonging to a specific type
+- contents:
+  - extreme_on_X
+  - extreme_on_Y
+  - most_deviant
+  - most_overpredicted
+  - most_typical
+  - most_underpredicted
+  - pathway
+  - predint
+- title: "Visualization"
+  desc: Functions for visualizing case classifications
+- contents:
+  - pathway_xvr
+  - predint_plot
+  - residstd_plot

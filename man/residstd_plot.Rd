@@ -7,7 +7,7 @@
 residstd_plot(resid_df)
 }
 \arguments{
-\item{resid_df}{A dataframe created with \code{\link{resid_std}}.}
+\item{resid_df}{A dataframe created with \code{\link{residstd}}.}
 }
 \value{
 A plot of the observed outcome against the fitted outcome with

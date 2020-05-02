@@ -112,10 +112,10 @@ predint_plot <- function(pred_df) {
 #'
 #' @examples
 #' df <- lm(mpg ~ disp + wt, data = mtcars)
-#' resid_std(df, stdshare = 1)
+#' residstd(df, stdshare = 1)
 #'
 #' @export
-resid_std <- function(lmobject, stdshare = 1) {
+residstd <- function(lmobject, stdshare = 1) {
   if (class(lmobject) == "lm") {
     if (stdshare >= 0) {
       # calculating standard deviation of residuals
@@ -145,7 +145,7 @@ resid_std <- function(lmobject, stdshare = 1) {
 
 #' Plot of typical and deviant cases based on residuals' standard deviation
 #'
-#' @param resid_df A dataframe created with \code{\link{resid_std}}.
+#' @param resid_df A dataframe created with \code{\link{residstd}}.
 #'
 #' @return A plot of the observed outcome against the fitted outcome with
 #' interval and case classifications. Created with \code{\link{ggplot2}}.
