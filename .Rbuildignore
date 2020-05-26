@@ -3,3 +3,4 @@
 ^_pkgdown\.yml$
 ^docs$
 ^pkgdown$
+^_config\.yml$
