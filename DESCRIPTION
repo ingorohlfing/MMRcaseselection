@@ -8,7 +8,7 @@ Authors@R:
            comment = c(ORCID = "0000-0001-8715-4771"))
 Depends: R (>= 2.10)          
 Description: Researchers doing a mixed-methods analysis (nested analysis) can
-    use the package for the classication of cases and case selection using
+    use the package for the classification of cases and case selection using
     results of a linear regression. One can designate cases 
     as typical, deviant, extreme and pathway case and use different case 
     selection strategies for the choice of a case belonging to one of
