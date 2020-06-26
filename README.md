@@ -4,6 +4,8 @@
 
 [![GPLv3 License](https://img.shields.io/badge/License-GPL%20v3-yellow.svg)](https://opensource.org/licenses/)
 
+![](https://cranlogs.r-pkg.org/badges/grand-total/MMRcaseselection)
+
 ## Overview
 Classification and choice of cases for case studies based on regression results.
 
