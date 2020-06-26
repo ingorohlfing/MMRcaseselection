@@ -1,5 +1,8 @@
 # MMRcaseselection <img src="man/figures/MMRhex.png" height="200" align="right">
 
+[![CRAN
+status](http://www.r-pkg.org/badges/version/MMRcaseselection)](https://cran.r-project.org/package=MMRcaseselection)
+
 [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 
 [![GPLv3 License](https://img.shields.io/badge/License-GPL%20v3-yellow.svg)](https://opensource.org/licenses/)
