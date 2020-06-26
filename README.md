@@ -12,11 +12,11 @@ status](http://www.r-pkg.org/badges/version/MMRcaseselection)](https://cran.r-pr
 ## Overview
 Classification and choice of cases for case studies based on regression results.
 
-**This is work in progress.** For now, the package contains functions for the classification of cases as typical, deviant, extreme or pathway cases and the choice of these types of cases. At this stage, the focus is on single cases and case selection based on linear regression models (class `lm`).
+For now, the package contains functions for the classification of cases as typical, deviant, extreme or pathway cases and the choice of these types of cases. At this stage, the focus is on single cases and case selection based on linear regression models (class `lm`).
 
-The package has not been submitted to CRAN yet. If you want to use it, please install it from Github. Any feedback is welcomed.
+The package is available on CRAN. At present, the Github version is identical to the CRAN version.
 ```r
-devtools::install_github("ingorohlfing/MMRcaseselection")
+install.packages("MMRcaseselection")
 ```
 The documentation of the package and examples can be found [here](https://ingorohlfing.github.io/MMRcaseselection/docs/).
 
