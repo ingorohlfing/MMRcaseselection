@@ -31,7 +31,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">MMRcaseselection</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0</span>
       </span>
     </div>
 
@@ -39,7 +39,7 @@
       <ul class="nav navbar-nav">
 <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -71,7 +71,7 @@
 <ul class="nav navbar-nav navbar-right">
 <li>
   <a href="https://github.com/ingorohlfing/MMRcaseselection/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -85,13 +85,13 @@
 
       
 
-      </header><div class="row">
+      </header><script src="Most-typical-and-most-deviant_files/header-attrs-2.11/header-attrs.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Most typical and most deviant</h1>
                         <h4 class="author">Ingo Rohlfing</h4>
             
-            <h4 class="date">2020-05-02</h4>
+            <h4 class="date">2021-09-28</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/ingorohlfing/MMRcaseselection/blob/master/vignettes/Most-typical-and-most-deviant.Rmd"><code>vignettes/Most-typical-and-most-deviant.Rmd</code></a></small>
       <div class="hidden name"><code>Most-typical-and-most-deviant.Rmd</code></div>
@@ -100,24 +100,27 @@
 
     
     
-<div class="sourceCode" id="cb1"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">MMRcaseselection</span>)</pre></body></html></div>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/ingorohlfing/MMRcaseselection">MMRcaseselection</a></span><span class="op">)</span></code></pre></div>
 <p>One can use four functions to choose four <em>types of cases</em> without classifying all cases as either typical or deviant. The <em>most typical</em> and <em>most deviant</em> cases are proposed by Seawright and Gerring (<a href="https://doi.org/10.1177/1065912907313077">2008</a>). The most typical case has the smallest residual of all cases. The most deviant case has the largest residual of all cases. The two functions <code><a href="../reference/most_typical.html">most_typical()</a></code> and <code><a href="../reference/most_deviant.html">most_deviant()</a></code> work in the same way and show you the case with its residual. The input into the function is an <code>lm</code> object.</p>
-<div class="sourceCode" id="cb2"><html><body><pre class="r"><span class="no">df</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span>(<span class="no">mpg</span> ~ <span class="no">disp</span> + <span class="no">wt</span>, <span class="kw">data</span> <span class="kw">=</span> <span class="no">mtcars</span>)
-<span class="fu"><a href="../reference/most_typical.html">most_typical</a></span>(<span class="no">df</span>)
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">mpg</span> <span class="op">~</span> <span class="va">disp</span> <span class="op">+</span> <span class="va">wt</span>, data <span class="op">=</span> <span class="va">mtcars</span><span class="op">)</span>
+<span class="fu"><a href="../reference/most_typical.html">most_typical</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span>
 <span class="co">#&gt; Merc 450SE </span>
 <span class="co">#&gt; 0.03421046</span>
-<span class="fu"><a href="../reference/most_deviant.html">most_deviant</a></span>(<span class="no">df</span>)
+<span class="fu"><a href="../reference/most_deviant.html">most_deviant</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span>
 <span class="co">#&gt; Toyota Corolla </span>
-<span class="co">#&gt;        6.34844</span></pre></body></html></div>
+<span class="co">#&gt;        6.34844</span></code></pre></div>
 <p>The most deviant case does not distinguish between cases that have a large negative and a large positive residual. Cases with a negative residual are <em>overpredicted</em> because the predicted outcome is higher than the observed outcome. Cases with a positive residual are <em>underpredicted</em> because the predicted outcome is lower than the observed outcome. It might not matter whether a case is overpredicted or underpredicted because both subtypes of outliers can have the same type of deviance. However, one might be interested in knowing whether a case has a positive or negative residual and what the most overpredicted and underpredicted cases are. This is what the functions <code><a href="../reference/most_overpredicted.html">most_overpredicted()</a></code> and <code><a href="../reference/most_underpredicted.html">most_underpredicted()</a></code> achieve, each taking an <code>lm</code> object as input.</p>
-<div class="sourceCode" id="cb3"><html><body><pre class="r"><span class="co"># largest positive residual</span>
-<span class="fu"><a href="../reference/most_underpredicted.html">most_underpredicted</a></span>(<span class="no">df</span>)
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># largest positive residual</span>
+<span class="fu"><a href="../reference/most_underpredicted.html">most_underpredicted</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span>
 <span class="co">#&gt; Toyota Corolla </span>
 <span class="co">#&gt;        6.34844</span>
 <span class="co"># largest negative residual</span>
-<span class="fu"><a href="../reference/most_overpredicted.html">most_overpredicted</a></span>(<span class="no">df</span>)
+<span class="fu"><a href="../reference/most_overpredicted.html">most_overpredicted</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span>
 <span class="co">#&gt; Ferrari Dino </span>
-<span class="co">#&gt;     -3.40868</span></pre></body></html></div>
+<span class="co">#&gt;     -3.40868</span></code></pre></div>
 <p>The package does not include functions for plotting the cases. There are multiple, very useful packages such as the <a href="https://olsrr.rsquaredacademy.com/articles/residual_diagnostics.html">olsrr</a> package that can be used for the easy visualization of residuals.</p>
   </div>
 
@@ -134,7 +137,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

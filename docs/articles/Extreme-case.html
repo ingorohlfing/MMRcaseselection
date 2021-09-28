@@ -31,7 +31,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">MMRcaseselection</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0</span>
       </span>
     </div>
 
@@ -39,7 +39,7 @@
       <ul class="nav navbar-nav">
 <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -71,7 +71,7 @@
 <ul class="nav navbar-nav navbar-right">
 <li>
   <a href="https://github.com/ingorohlfing/MMRcaseselection/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -85,7 +85,7 @@
 
       
 
-      </header><div class="row">
+      </header><script src="Extreme-case_files/header-attrs-2.11/header-attrs.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Extreme case</h1>
@@ -98,11 +98,13 @@
 
     
     
-<div class="sourceCode" id="cb1"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">MMRcaseselection</span>)</pre></body></html></div>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/ingorohlfing/MMRcaseselection">MMRcaseselection</a></span><span class="op">)</span></code></pre></div>
 <p>The extreme case is selected with regard to the cases’ values on an independent variable or the outcome. It is defined by the absolute difference between the case value on the chosen variable and the variable’s mean. For example, for the outcome the <em>extremeness</em> of a case is defined as <span class="math inline">\(|Y_i-\hat{Y}|\)</span>, with <span class="math inline">\(i\)</span> being the case index. The extreme case is the case with the maximum absolute difference. (see Seawright (<a href="https://doi.org/10.1177/0049124116643556">2016</a>)) Depending on the research question or substantive interest, one might be interested in the extreme case in the lower or upper range of a variable. Extremeness is then calculated with <span class="math inline">\(Y_i-\hat{Y}\)</span>.</p>
 <p>The <code><a href="../reference/extreme_on_x.html">extreme_on_x()</a></code> and <code><a href="../reference/extreme_on_y.html">extreme_on_y()</a></code> functions take an <code>lm</code> object as input and calculate the extremeness of all cases. For extremeness on an independent variable, one additionally needs to specify the variable of interest as a <em>character</em>. The output is a dataframe and cases are ordered by absolute extremeness in decreasing order. The dataframe also presents the extremeness values that show whether the case is extreme in the lower range of the variable (negative values) or the positive range (positive values).</p>
-<div class="sourceCode" id="cb2"><html><body><pre class="r"><span class="no">df</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span>(<span class="no">mpg</span> ~ <span class="no">disp</span> + <span class="no">wt</span>, <span class="kw">data</span> <span class="kw">=</span> <span class="no">mtcars</span>)
-<span class="fu"><a href="../reference/extreme_on_x.html">extreme_on_x</a></span>(<span class="no">df</span>, <span class="st">"wt"</span>)
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">mpg</span> <span class="op">~</span> <span class="va">disp</span> <span class="op">+</span> <span class="va">wt</span>, data <span class="op">=</span> <span class="va">mtcars</span><span class="op">)</span>
+<span class="fu"><a href="../reference/extreme_on_x.html">extreme_on_x</a></span><span class="op">(</span><span class="va">df</span>, <span class="st">"wt"</span><span class="op">)</span>
 <span class="co">#&gt;                      mpg  disp    wt abs. extremeness extremeness</span>
 <span class="co">#&gt; Lincoln Continental 10.4 460.0 5.424          2.20675     2.20675</span>
 <span class="co">#&gt; Chrysler Imperial   14.7 440.0 5.345          2.12775     2.12775</span>
@@ -135,18 +137,19 @@
 <span class="co">#&gt; Merc 230            22.8 140.8 3.150          0.06725    -0.06725</span>
 <span class="co">#&gt; Ford Pantera L      15.8 351.0 3.170          0.04725    -0.04725</span>
 <span class="co">#&gt; Merc 240D           24.4 146.7 3.190          0.02725    -0.02725</span>
-<span class="co">#&gt; Hornet 4 Drive      21.4 258.0 3.215          0.00225    -0.00225</span></pre></body></html></div>
+<span class="co">#&gt; Hornet 4 Drive      21.4 258.0 3.215          0.00225    -0.00225</span></code></pre></div>
 <p>The calculation of extremeness on the outcome only requires an <code>lm</code> object as input.</p>
-<div class="sourceCode" id="cb3"><html><body><pre class="r"><span class="no">df</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span>(<span class="no">mpg</span> ~ <span class="no">disp</span> + <span class="no">wt</span>, <span class="kw">data</span> <span class="kw">=</span> <span class="no">mtcars</span>)
-<span class="no">Y_extreme</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/extreme_on_y.html">extreme_on_y</a></span>(<span class="no">df</span>)
-<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(<span class="no">Y_extreme</span>)
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">mpg</span> <span class="op">~</span> <span class="va">disp</span> <span class="op">+</span> <span class="va">wt</span>, data <span class="op">=</span> <span class="va">mtcars</span><span class="op">)</span>
+<span class="va">Y_extreme</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/extreme_on_y.html">extreme_on_y</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">Y_extreme</span><span class="op">)</span>
 <span class="co">#&gt;                      mpg  disp    wt abs. extremeness extremeness</span>
 <span class="co">#&gt; Toyota Corolla      33.9  71.1 1.835        13.809375   13.809375</span>
 <span class="co">#&gt; Fiat 128            32.4  78.7 2.200        12.309375   12.309375</span>
 <span class="co">#&gt; Honda Civic         30.4  75.7 1.615        10.309375   10.309375</span>
 <span class="co">#&gt; Lotus Europa        30.4  95.1 1.513        10.309375   10.309375</span>
 <span class="co">#&gt; Cadillac Fleetwood  10.4 472.0 5.250         9.690625   -9.690625</span>
-<span class="co">#&gt; Lincoln Continental 10.4 460.0 5.424         9.690625   -9.690625</span></pre></body></html></div>
+<span class="co">#&gt; Lincoln Continental 10.4 460.0 5.424         9.690625   -9.690625</span></code></pre></div>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
@@ -162,7 +165,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

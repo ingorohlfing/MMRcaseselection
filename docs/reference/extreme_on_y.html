@@ -73,7 +73,7 @@ value on the dependent variable and the variable's mean value." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">MMRcaseselection</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0</span>
       </span>
     </div>
 
@@ -81,7 +81,7 @@ value on the dependent variable and the variable's mean value." />
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -113,7 +113,7 @@ value on the dependent variable and the variable's mean value." />
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/ingorohlfing/MMRcaseselection/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -140,7 +140,7 @@ value on the dependent variable and the variable's mean value." />
 value on the dependent variable and the variable's mean value.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>extreme_on_y</span>(<span class='no'>lmobject</span>)</pre>
+    <pre class="usage"><span class='fu'>extreme_on_y</span><span class='op'>(</span><span class='va'>lmobject</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -169,8 +169,9 @@ Variable. <em>Sociological Methods &amp; Research</em> 45 (3): 493-525.
 (<a href='https://doi.org/10.1177/0049124116643556'>https://doi.org/10.1177/0049124116643556</a>)</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>df</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span>(<span class='no'>mpg</span> ~ <span class='no'>disp</span> + <span class='no'>wt</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>mtcars</span>)
-<span class='fu'>extreme_on_y</span>(<span class='no'>df</span>)</div><div class='output co'>#&gt;                      mpg  disp    wt abs. extremeness extremeness
+    <pre class="examples"><div class='input'><span class='va'>df</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>mpg</span> <span class='op'>~</span> <span class='va'>disp</span> <span class='op'>+</span> <span class='va'>wt</span>, data <span class='op'>=</span> <span class='va'>mtcars</span><span class='op'>)</span>
+<span class='fu'>extreme_on_y</span><span class='op'>(</span><span class='va'>df</span><span class='op'>)</span>
+</div><div class='output co'>#&gt;                      mpg  disp    wt abs. extremeness extremeness
 #&gt; Toyota Corolla      33.9  71.1 1.835        13.809375   13.809375
 #&gt; Fiat 128            32.4  78.7 2.200        12.309375   12.309375
 #&gt; Honda Civic         30.4  75.7 1.615        10.309375   10.309375
@@ -219,7 +220,7 @@ Variable. <em>Sociological Methods &amp; Research</em> 45 (3): 493-525.
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

@@ -75,7 +75,7 @@ analysis of mechanisms." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">MMRcaseselection</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0</span>
       </span>
     </div>
 
@@ -83,7 +83,7 @@ analysis of mechanisms." />
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -115,7 +115,7 @@ analysis of mechanisms." />
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/ingorohlfing/MMRcaseselection/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -144,7 +144,7 @@ difference, the more a case qualifies as a pathway case suitable for the
 analysis of mechanisms.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>pathway</span>(<span class='no'>full_model</span>, <span class='no'>reduced_model</span>)</pre>
+    <pre class="usage"><span class='fu'>pathway</span><span class='op'>(</span><span class='va'>full_model</span>, <span class='va'>reduced_model</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -185,9 +185,10 @@ Gerring (2007): Is There a (Viable) Crucial-Case Method?
 <a href='https://journals.sagepub.com/doi/10.1177/0010414006290784'>https://journals.sagepub.com/doi/10.1177/0010414006290784</a>)</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>df_full</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span>(<span class='no'>mpg</span> ~ <span class='no'>disp</span> + <span class='no'>wt</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>mtcars</span>)
-<span class='no'>df_reduced</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span>(<span class='no'>mpg</span> ~ <span class='no'>wt</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>mtcars</span>)
-<span class='fu'>pathway</span>(<span class='no'>df_full</span>, <span class='no'>df_reduced</span>)</div><div class='output co'>#&gt;                      mpg  disp    wt  full_resid reduced_resid  pathway_wb
+    <pre class="examples"><div class='input'><span class='va'>df_full</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>mpg</span> <span class='op'>~</span> <span class='va'>disp</span> <span class='op'>+</span> <span class='va'>wt</span>, data <span class='op'>=</span> <span class='va'>mtcars</span><span class='op'>)</span>
+<span class='va'>df_reduced</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>mpg</span> <span class='op'>~</span> <span class='va'>wt</span>, data <span class='op'>=</span> <span class='va'>mtcars</span><span class='op'>)</span>
+<span class='fu'>pathway</span><span class='op'>(</span><span class='va'>df_full</span>, <span class='va'>df_reduced</span><span class='op'>)</span>
+</div><div class='output co'>#&gt;                      mpg  disp    wt  full_resid reduced_resid  pathway_wb
 #&gt; Mazda RX4           21.0 160.0 2.620 -2.34543258    -2.2826106 -0.06282193
 #&gt; Mazda RX4 Wag       21.0 160.0 2.875 -1.49097212    -0.9197704 -0.57120172
 #&gt; Datsun 710          22.8 108.0 2.320 -2.47236688    -2.0859521 -0.38641476
@@ -269,7 +270,7 @@ Gerring (2007): Is There a (Viable) Crucial-Case Method?
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

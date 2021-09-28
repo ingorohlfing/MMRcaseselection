@@ -31,7 +31,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">MMRcaseselection</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0</span>
       </span>
     </div>
 
@@ -39,7 +39,7 @@
       <ul class="nav navbar-nav">
 <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -71,7 +71,7 @@
 <ul class="nav navbar-nav navbar-right">
 <li>
   <a href="https://github.com/ingorohlfing/MMRcaseselection/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -85,13 +85,13 @@
 
       
 
-      </header><div class="row">
+      </header><script src="Classification-as-typical-and-deviant_files/header-attrs-2.11/header-attrs.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Classification as typical and deviant</h1>
                         <h4 class="author">Ingo Rohlfing</h4>
             
-            <h4 class="date">2020-05-02</h4>
+            <h4 class="date">2021-09-28</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/ingorohlfing/MMRcaseselection/blob/master/vignettes/Classification-as-typical-and-deviant.Rmd"><code>vignettes/Classification-as-typical-and-deviant.Rmd</code></a></small>
       <div class="hidden name"><code>Classification-as-typical-and-deviant.Rmd</code></div>
@@ -100,42 +100,48 @@
 
     
     
-<div class="sourceCode" id="cb1"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">MMRcaseselection</span>)
-<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">ggplot2</span>) <span class="co"># for illustration of plot customization</span></pre></body></html></div>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/ingorohlfing/MMRcaseselection">MMRcaseselection</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span> <span class="co"># for illustration of plot customization</span></code></pre></div>
 <p>The classification (designation, assignment) of cases as typical and deviant needs to be distinguished from the actual choice of cases that are of a specific type. The package offers two ways of classifying cases. First, one can designate cases using the <em>prediction interval</em> or the <em>standard deviation of the residuals</em>. Both classification techniques require an <code>lm</code> object as input.</p>
 <p>The approach using the prediction interval additionally requires the specification of the width of the interval. The % prediction interval represents the range of outcome values within which 95% of future outcome values are expected to fall in repeated samples. Following Rohlfing and Starke (<a href="https://doi.org/10.1111/spsr.12052">2013</a>), a case is designated as typical if the observed outcome value is inside the interval and as deviant otherwise.</p>
 <p>Here is a simple example using the <code>mtcars</code> dataset and a 90% prediction interval (for no specific reason, the default value is 0.95). The output of the function is a dataframe with the observed and fitted outcome values, the upper and lower bound of the prediction interval and the case status based on the fitted value and the prediction interval that is specific to each case.</p>
-<div class="sourceCode" id="cb2"><html><body><pre class="r"><span class="no">df</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span>(<span class="no">mpg</span> ~ <span class="no">disp</span> + <span class="no">wt</span>, <span class="kw">data</span> <span class="kw">=</span> <span class="no">mtcars</span>)
-<span class="no">pi_df</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/predint.html">predint</a></span>(<span class="no">df</span>, <span class="kw">piwidth</span> <span class="kw">=</span> <span class="fl">0.9</span>)
-<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(<span class="no">pi_df</span>)
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">mpg</span> <span class="op">~</span> <span class="va">disp</span> <span class="op">+</span> <span class="va">wt</span>, data <span class="op">=</span> <span class="va">mtcars</span><span class="op">)</span>
+<span class="va">pi_df</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/predint.html">predint</a></span><span class="op">(</span><span class="va">df</span>, piwidth <span class="op">=</span> <span class="fl">0.9</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">pi_df</span><span class="op">)</span>
 <span class="co">#&gt;                        fit      lwr      upr outcome  status</span>
 <span class="co">#&gt; Mazda RX4         23.34543 18.28346 28.40741    21.0 typical</span>
 <span class="co">#&gt; Mazda RX4 Wag     22.49097 17.42387 27.55808    21.0 typical</span>
 <span class="co">#&gt; Datsun 710        25.27237 20.16282 30.38191    22.8 typical</span>
 <span class="co">#&gt; Hornet 4 Drive    19.61467 14.56390 24.66543    21.4 typical</span>
 <span class="co">#&gt; Hornet Sportabout 17.05281 11.75986 22.34575    18.7 typical</span>
-<span class="co">#&gt; Valiant           19.37863 14.31502 24.44224    18.1 typical</span></pre></body></html></div>
+<span class="co">#&gt; Valiant           19.37863 14.31502 24.44224    18.1 typical</span></code></pre></div>
 <p>The designation of cases based on the prediction interval can be visualized with the <code><a href="../reference/predint_plot.html">predint_plot()</a></code> command. The graph plots observed vs. fitted outcome values together with the % prediction interval. The plot is a <code>gg</code> object and can be edited with the usual commands of the <code>ggplot2</code> package.</p>
 <p>The input into the plotting function has to be a dataframe produced with <code><a href="../reference/predint.html">predint()</a></code>. The color scheme is the <a href="https://CRAN.R-project.org/package=viridis">viridis color palette</a> that is accustomed for colorblind readers and also works when printed in grey scale. If the viridis palette is not preferred, one can substitute it with any other <code>scale_color_*</code> scheme by adding it to the command.</p>
-<div class="sourceCode" id="cb3"><html><body><pre class="r"><span class="fu"><a href="../reference/predint_plot.html">predint_plot</a></span>(<span class="no">pi_df</span>)</pre></body></html></div>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="../reference/predint_plot.html">predint_plot</a></span><span class="op">(</span><span class="va">pi_df</span><span class="op">)</span></code></pre></div>
 <p><img src="Classification-as-typical-and-deviant_files/figure-html/unnamed-chunk-3-1.png" width="576"></p>
-<div class="sourceCode" id="cb4"><html><body><pre class="r"><span class="co"># Using scale_color_brewer() instead of the viridis palette.</span>
-<span class="fu"><a href="../reference/predint_plot.html">predint_plot</a></span>(<span class="no">pi_df</span>) + <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_brewer.html">scale_color_brewer</a></span>()
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># Using scale_color_brewer() instead of the viridis palette.</span>
+<span class="fu"><a href="../reference/predint_plot.html">predint_plot</a></span><span class="op">(</span><span class="va">pi_df</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_brewer.html">scale_color_brewer</a></span><span class="op">(</span><span class="op">)</span>
 <span class="co">#&gt; Scale for 'colour' is already present. Adding another scale for 'colour',</span>
-<span class="co">#&gt; which will replace the existing scale.</span></pre></body></html></div>
+<span class="co">#&gt; which will replace the existing scale.</span></code></pre></div>
 <p><img src="Classification-as-typical-and-deviant_files/figure-html/unnamed-chunk-3-2.png" width="576"></p>
 <p>An alternative classification technique following Lieberman (<a href="https://doi.org/10.1017/S0003055405051762">2005</a>) uses the <em>standard deviation of the residuals</em>. The command for assigning cases and typical and deviant is <code><a href="../reference/residstd.html">residstd()</a></code>. The specification of <code>stdshare</code> determines how large the share of the residual standard deviation should be to distinguish typical from deviant cases. The default value is 1 (for no specific reason).</p>
-<div class="sourceCode" id="cb5"><html><body><pre class="r"><span class="no">resid_df</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/residstd.html">residstd</a></span>(<span class="no">df</span>, <span class="kw">stdshare</span> <span class="kw">=</span> <span class="fl">1.5</span>)
-<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(<span class="no">resid_df</span>)
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">resid_df</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/residstd.html">residstd</a></span><span class="op">(</span><span class="va">df</span>, stdshare <span class="op">=</span> <span class="fl">1.5</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">resid_df</span><span class="op">)</span>
 <span class="co">#&gt;                        fit residual.scale outcome  status</span>
 <span class="co">#&gt; Mazda RX4         23.34543       2.916555    21.0 typical</span>
 <span class="co">#&gt; Mazda RX4 Wag     22.49097       2.916555    21.0 typical</span>
 <span class="co">#&gt; Datsun 710        25.27237       2.916555    22.8 typical</span>
 <span class="co">#&gt; Hornet 4 Drive    19.61467       2.916555    21.4 typical</span>
 <span class="co">#&gt; Hornet Sportabout 17.05281       2.916555    18.7 typical</span>
-<span class="co">#&gt; Valiant           19.37863       2.916555    18.1 typical</span></pre></body></html></div>
+<span class="co">#&gt; Valiant           19.37863       2.916555    18.1 typical</span></code></pre></div>
 <p>To my knowledge, it has not been proposed to plot the case classification resulting from this technique. However, it can be done and is available in this package with the command <code><a href="../reference/residstd_plot.html">residstd_plot()</a></code>. The standard deviation of the residual is necessarily the same for all cases and is represented by a symmetric corridor (parallel grey lines) around the bisecting line in a plot of observed vs. fitted outcome values. The plot is a <code>gg</code> object that can be accustomed with <code>ggplot2</code> commands.</p>
-<div class="sourceCode" id="cb6"><html><body><pre class="r"><span class="fu"><a href="../reference/residstd_plot.html">residstd_plot</a></span>(<span class="no">resid_df</span>)</pre></body></html></div>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="../reference/residstd_plot.html">residstd_plot</a></span><span class="op">(</span><span class="va">resid_df</span><span class="op">)</span></code></pre></div>
 <p><img src="Classification-as-typical-and-deviant_files/figure-html/unnamed-chunk-5-1.png" width="576"></p>
 <div id="packages-used-in-this-vignette" class="section level2">
 <h2 class="hasAnchor">
@@ -166,7 +172,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>
