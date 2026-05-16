@@ -9,18 +9,30 @@ status](http://www.r-pkg.org/badges/version/MMRcaseselection)](https://cran.r-pr
 ## Overview
 Classification and choice of cases for case studies based on regression results.
 
-For now, the package contains functions for the classification of cases as typical, deviant, extreme or pathway cases and the choice of these types of cases. At this stage, the focus is on single cases and case selection based on linear regression models (class `lm`).
+For now, the package contains functions for the classification of cases as 
+typical, deviant, extreme or pathway cases and the choice of these types of cases. 
+At this stage, the focus is on single cases and case selection based on linear regression models (class `lm`).
 
-The package is [available on CRAN](https://cran.r-project.org/web/packages/MMRcaseselection/). At present, the Github version is identical to the CRAN version. Using R/RStudio, you can download the package
-from CRAN in the usual way.
+The package is [available on CRAN](https://cran.r-project.org/package=MMRcaseselection). 
+The version on CRAN Github is 0.2.0. The package can be installed from CRAN with the following command.
 
 ```r
 install.packages("MMRcaseselection")
 ```
 
-The documentation of the package and examples can be found [here](https://ingorohlfing.github.io/MMRcaseselection/docs/). Please open an
+The package can be installed from Github with the following command.
+
+```r
+pak::pak("ingorohlfing/MMRcaseselection")
+```
+
+The documentation of the package and examples can be found 
+[here](https://ingorohlfing.github.io/MMRcaseselection/docs/). Please open an
 issue on Github if problems come up.
 
 ***
 
-Work on the package was funded by the European Research Council (ERC) under the European Union’s Horizon 2020 research and innovation program (grant agreement number 638425, *Enhanced Qualitative and Multimethod Research*).
+Work on the package was funded by the European Research Council (ERC) under the 
+European Union’s Horizon 2020 research and innovation program (grant agreement 
+number 638425, *Enhanced Qualitative and Multimethod Research*).
+
