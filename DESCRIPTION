@@ -1,9 +1,9 @@
 Package: MMRcaseselection
 Type: Package
 Title: Case Classification and Selection Based on Regression Results
-Version: 0.1.0
+Version: 0.2.0
 Authors@R: 
-    person("Ingo", "Rohlfing", email = "i.rohlfing@uni-koeln.de",
+    person("Ingo", "Rohlfing", email = "ingo.rohlfing@uni-passau.de",
            role = c("aut", "cre"),
            comment = c(ORCID = "0000-0001-8715-4771"))
 Depends: R (>= 2.10)          
@@ -20,11 +20,11 @@ LazyData: true
 Imports: 
     stats,
     ggplot2
-RoxygenNote: 7.1.0
 URL: https://github.com/ingorohlfing/MMRcaseselection
-BugReports: https://github.com/ingorohlfing/MMRcaseselection
+BugReports: https://github.com/ingorohlfing/MMRcaseselection/issues
 Suggests: 
     knitr,
     rmarkdown
 VignetteBuilder: knitr
 Language: en-US
+Config/roxygen2/version: 8.0.0
