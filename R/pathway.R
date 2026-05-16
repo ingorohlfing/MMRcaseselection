@@ -49,7 +49,7 @@
 #' @export
 pathway <- function(full_model, reduced_model) {
   if (inherits(full_model, "lm")) {
-    if (inherits(reduced_mode, "lm")) {
+    if (inherits(reduced_model, "lm")) {
       # full model
       full_resid <- residuals(full_model)
       # reduced model

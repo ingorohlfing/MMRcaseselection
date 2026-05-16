@@ -37,7 +37,7 @@ extreme_on_x <- function(lmobject = NULL, ind_var = NULL) {
   if (is.null(ind_var)) {
     stop("Please specify the independent variable")
   }
-  if (!inhereits(lmobject, "lm")) {
+  if (!inherits(lmobject, "lm")) {
     stop("lmobject input into function is not of class lm")
   }
   if (isFALSE(ind_var %in% names(lmobject$model[, 2:ncol(lmobject$model)]))) {
