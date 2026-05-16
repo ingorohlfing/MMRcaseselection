@@ -83,7 +83,7 @@ pathway <- function(full_model, reduced_model) {
 #' are values as calculated by Gerring.
 #'
 #' @return A plot of the chosen type of pathway values against the pathway
-#' variable created with \code{\link{ggplot2}}.
+#' variable created with \pkg{ggplot2}.
 #'
 #' @import ggplot2
 #'

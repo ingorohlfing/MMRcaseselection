@@ -18,7 +18,7 @@ are values as calculated by Gerring.}
 }
 \value{
 A plot of the chosen type of pathway values against the pathway
-variable created with \code{\link{ggplot2}}.
+variable created with \pkg{ggplot2}.
 }
 \description{
 Plot of residuals against pathway variable

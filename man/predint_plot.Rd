@@ -12,7 +12,7 @@ predint_plot(pred_df)
 \value{
 A plot of the observed outcome against the fitted outcome with
 prediction intervals and case classifications. Created with
-\code{\link{ggplot2}}.
+\pkg{ggplot2}.
 }
 \description{
 Presented in Rohlfing, Ingo and Peter Starke (2013):

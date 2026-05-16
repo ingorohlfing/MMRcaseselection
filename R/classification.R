@@ -66,7 +66,7 @@ predint <- function(lmobject, piwidth = 0.95) {
 #'
 #' @return A plot of the observed outcome against the fitted outcome with
 #' prediction intervals and case classifications. Created with
-#' \code{\link{ggplot2}}.
+#' \pkg{ggplot2}.
 #'
 #' @import ggplot2
 #
@@ -148,7 +148,7 @@ residstd <- function(lmobject, stdshare = 1) {
 #' @param resid_df A dataframe created with \code{\link{residstd}}.
 #'
 #' @return A plot of the observed outcome against the fitted outcome with
-#' interval and case classifications. Created with \code{\link{ggplot2}}.
+#' interval and case classifications. Created with \pkg{ggplot2}.
 #'
 #' @import ggplot2
 #'
