@@ -30,7 +30,7 @@
 #'
 #' @export
 predint <- function(lmobject, piwidth = 0.95) {
-  if (class(lmobject) == "lm") {
+  if (inherits(lmobject, "lm")) {
     if (piwidth >= 0 & piwidth <= 1) {
       # calculating prediction interval
       temp <- as.data.frame(suppressWarnings(predict.lm(lmobject,
@@ -116,7 +116,7 @@ predint_plot <- function(pred_df) {
 #'
 #' @export
 residstd <- function(lmobject, stdshare = 1) {
-  if (class(lmobject) == "lm") {
+  if (inherits(lmobject, "lm")) {
     if (stdshare >= 0) {
       # calculating standard deviation of residuals
       tempsd <- as.data.frame(suppressWarnings(predict.lm(df, se.fit = T)))

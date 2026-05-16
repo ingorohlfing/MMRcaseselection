@@ -21,7 +21,7 @@
 #' most_deviant(df)
 #' @export
 most_deviant <- function(lmobject) {
-  if (class(lmobject) == "lm") {
+  if (inherits(lmobject, "lm")) {
     absresid <- sort(abs(residuals(lmobject)))
     return(absresid[length(absresid)])
   }
@@ -47,7 +47,7 @@ most_deviant <- function(lmobject) {
 #' most_overpredicted(df)
 #' @export
 most_overpredicted <- function(lmobject) {
-  if (class(lmobject) == "lm") {
+  if (inherits(lmobject, "lm")) {
     resid <- sort(residuals(lmobject))
     return(resid[1])
   }
@@ -76,7 +76,7 @@ most_overpredicted <- function(lmobject) {
 #'
 #' @export
 most_underpredicted <- function(lmobject) {
-  if (class(lmobject) == "lm") {
+  if (inherits(lmobject, "lm")) {
     resid <- sort(residuals(lmobject))
     return(resid[length(resid)])
   }

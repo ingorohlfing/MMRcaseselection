@@ -37,7 +37,7 @@ extreme_on_x <- function(lmobject = NULL, ind_var = NULL) {
   if (is.null(ind_var)) {
     stop("Please specify the independent variable")
   }
-  if (class(lmobject) != "lm") {
+  if (!inhereits(lmobject, "lm")) {
     stop("lmobject input into function is not of class lm")
   }
   if (isFALSE(ind_var %in% names(lmobject$model[, 2:ncol(lmobject$model)]))) {
@@ -86,7 +86,7 @@ extreme_on_x <- function(lmobject = NULL, ind_var = NULL) {
 #'
 #' @export
 extreme_on_y <- function(lmobject) {
-  if (class(lmobject) == "lm") {
+  if (inherits(lmobject, "lm")) {
     tempy <- lmobject$model[, 1]
     tempdf <- lmobject$model
     tempdf$`abs. extremeness` <- abs(tempy - mean(tempy))

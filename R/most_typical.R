@@ -23,7 +23,7 @@
 #'
 #' @export
 most_typical <- function(lmobject) {
-  if (class(lmobject) == "lm") {
+  if (inherits(lmobject, "lm")) {
   absresid <- sort(abs(residuals(lmobject)))
   return(absresid[1])
   }
