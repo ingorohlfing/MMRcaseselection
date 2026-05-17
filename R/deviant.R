@@ -7,7 +7,7 @@
 #' Case Selection Techniques in Case Study Research: A Menu of
 #' Qualitative and Quantitative Options. \emph{Political Research Quarterly}
 #' 61 (2): 294-308.
-#' (\url{https://journals.sagepub.com/doi/pdf/10.1177/1065912907313077})
+#' (\doi{10.1177/1065912907313077})
 #'
 #' @param lmobject Object generated with \code{\link[stats]{lm}}
 #'

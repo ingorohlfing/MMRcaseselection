@@ -13,7 +13,7 @@
 #' Proposed by Rohlfing, Ingo and Peter Starke (2013):
 #' Building on Solid Ground: Robust Case Selection in Multi-Method Research.
 #' *Swiss Political Science Review* 19 (4): 492-512.
-#' (\url{https://doi.org/10.1111/spsr.12052})
+#' (\doi{10.1111/spsr.12052})
 #'
 #' @param lmobject Object generated with \code{\link[stats]{lm}}
 #' @param piwidth Width of the prediction interval (default is 0.95).
@@ -60,7 +60,7 @@ predint <- function(lmobject, piwidth = 0.95) {
 #' Presented in Rohlfing, Ingo and Peter Starke (2013):
 #' Building on Solid Ground: Robust Case Selection in Multi-Method Research.
 #' \emph{Swiss Political Science Review} 19 (4): 492-512.
-#' (\url{https://doi.org/10.1111/spsr.12052})
+#' (\doi{10.1111/spsr.12052})
 #'
 #' @param pred_df A dataframe created with \code{\link{predint}}.
 #'
@@ -98,7 +98,7 @@ predint_plot <- function(pred_df) {
 #'
 #' Proposed by Lieberman, Evan S. (2005): Nested Analysis as a Mixed-Method
 #' Strategy for Comparative Research. \emph{American Political Science Review}
-#' 99 (3): 435-452. \url{https://doi.org/10.1017/S0003055405051762}.
+#' 99 (3): 435-452. \doi{10.1017/S0003055405051762}.
 #'
 #' @param lmobject Object generated with \code{\link[stats]{lm}}
 #' @param stdshare Share of standard deviation of residuals distinguishing

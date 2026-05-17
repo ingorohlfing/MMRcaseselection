@@ -39,14 +39,14 @@ The difference between the absolute residuals of the full and reduced model
 follows the approach developed by Weller and Barnes (2014): \emph{Finding
 Pathways: Mixed-Method Research for Studying Causal Mechanisms.}
 Cambridge: Cambridge University Press.
-\url{https://doi.org/10.1017/CBO9781139644501}).
+\doi{10.1017/CBO9781139644501}).
 
 The calculation of the absolute difference between the full-model and
 reduced-model residuals, given a case's reduced-model residual is larger
 than its full-model residual, follows the proposal by
 Gerring (2007): Is There a (Viable) Crucial-Case Method?
 \emph{Comparative Political Studies} 40 (3): 231-253.
-\url{https://journals.sagepub.com/doi/10.1177/0010414006290784})
+\doi{10.1177/0010414006290784})
 }
 \examples{
 df_full <- lm(mpg ~ disp + wt, data = mtcars)
