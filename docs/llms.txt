@@ -1,0 +1,114 @@
+# MMRcaseselection ![](reference/figures/MMRhex.png)
+
+[![CRAN
+status](http://www.r-pkg.org/badges/version/MMRcaseselection)](https://cran.r-project.org/package=MMRcaseselection)
+[![Project Status: Active – The project has reached a stable, usable
+state and is being actively
+developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
+[![GPLv3
+License](https://img.shields.io/badge/License-GPL%20v3-yellow.svg)](https://opensource.org/license)
+![](https://cranlogs.r-pkg.org/badges/grand-total/MMRcaseselection)
+
+## Overview
+
+Classification and choice of cases for case studies based on regression
+results.
+
+For now, the package contains functions for the classification of cases
+as typical, deviant, extreme or pathway cases and the choice of these
+types of cases. At this stage, the focus is on single cases and case
+selection based on linear regression models (class `lm`).
+
+The package is [available on
+CRAN](https://cran.r-project.org/package=MMRcaseselection). The version
+on CRAN Github is 0.2.0. The package can be installed from CRAN with the
+following command.
+
+``` r
+
+install.packages("MMRcaseselection")
+```
+
+The package can be installed from Github with the following command.
+
+``` r
+
+pak::pak("ingorohlfing/MMRcaseselection")
+```
+
+The documentation of the package and examples can be found
+[here](https://ingorohlfing.github.io/MMRcaseselection/docs/). Please
+open an issue on Github if problems come up.
+
+------------------------------------------------------------------------
+
+Work on the package was funded by the European Research Council (ERC)
+under the European Union’s Horizon 2020 research and innovation program
+(grant agreement number 638425, *Enhanced Qualitative and Multimethod
+Research*).
+
+# Package index
+
+## Classification of cases
+
+Functions for designating cases as belonging to a specific type
+
+- [`extreme_on_x()`](https://ingorohlfing.github.io/MMRcaseselection/reference/extreme_on_x.md)
+  : Extremeness of cases on an independent variable
+- [`extreme_on_y()`](https://ingorohlfing.github.io/MMRcaseselection/reference/extreme_on_y.md)
+  : Extremeness of cases on the dependent variable
+- [`pathway()`](https://ingorohlfing.github.io/MMRcaseselection/reference/pathway.md)
+  : Pathway case
+- [`predint()`](https://ingorohlfing.github.io/MMRcaseselection/reference/predint.md)
+  : Classification of cases as typical and deviant using a prediction
+  interval.
+- [`residstd()`](https://ingorohlfing.github.io/MMRcaseselection/reference/residstd.md)
+  : Classification of cases as typical and deviant using the standard
+  deviation of the residuals.
+
+## Selection of cases
+
+Functions for choosing cases belonging to a specific type
+
+- [`extreme_on_x()`](https://ingorohlfing.github.io/MMRcaseselection/reference/extreme_on_x.md)
+  : Extremeness of cases on an independent variable
+- [`extreme_on_y()`](https://ingorohlfing.github.io/MMRcaseselection/reference/extreme_on_y.md)
+  : Extremeness of cases on the dependent variable
+- [`most_deviant()`](https://ingorohlfing.github.io/MMRcaseselection/reference/most_deviant.md)
+  : Identification of the most deviant case
+- [`most_overpredicted()`](https://ingorohlfing.github.io/MMRcaseselection/reference/most_overpredicted.md)
+  : Identification of the most overpredicted case
+- [`most_typical()`](https://ingorohlfing.github.io/MMRcaseselection/reference/most_typical.md)
+  : Identification of the most typical case
+- [`most_underpredicted()`](https://ingorohlfing.github.io/MMRcaseselection/reference/most_underpredicted.md)
+  : Identification of the most underpredicted case
+- [`pathway()`](https://ingorohlfing.github.io/MMRcaseselection/reference/pathway.md)
+  : Pathway case
+- [`predint()`](https://ingorohlfing.github.io/MMRcaseselection/reference/predint.md)
+  : Classification of cases as typical and deviant using a prediction
+  interval.
+
+## Visualization
+
+Functions for visualizing case classifications
+
+- [`pathway_xvr()`](https://ingorohlfing.github.io/MMRcaseselection/reference/pathway_xvr.md)
+  : Plot of residuals against pathway variable
+- [`predint_plot()`](https://ingorohlfing.github.io/MMRcaseselection/reference/predint_plot.md)
+  : Plot of typical and deviant cases with prediction intervals
+- [`residstd_plot()`](https://ingorohlfing.github.io/MMRcaseselection/reference/residstd_plot.md)
+  : Plot of typical and deviant cases based on residuals' standard
+  deviation
+
+# Articles
+
+### All vignettes
+
+- [Classification as typical and
+  deviant](https://ingorohlfing.github.io/MMRcaseselection/articles/Classification-as-typical-and-deviant.md):
+- [Extreme
+  case](https://ingorohlfing.github.io/MMRcaseselection/articles/Extreme-case.md):
+- [Most typical and most
+  deviant](https://ingorohlfing.github.io/MMRcaseselection/articles/Most-typical-and-most-deviant.md):
+- [Pathway
+  case](https://ingorohlfing.github.io/MMRcaseselection/articles/Pathway-case.md):

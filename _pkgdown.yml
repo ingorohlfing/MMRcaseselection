@@ -1,6 +1,7 @@
-destination: docs
-
 url: https://ingorohlfing.github.io/MMRcaseselection/
+template:
+  bootstrap: 5
+  bootswatch: flatly
 
 authors:
   Ingo Rohlfing:
