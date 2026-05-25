@@ -15,7 +15,7 @@ At this stage, the focus is on single cases and case selection based on linear
 regression models (class `lm`).
 
 The package is [available on CRAN](https://cran.r-project.org/package=MMRcaseselection). 
-The version on CRAN Gand ithub is 0.2.0. The package can be installed from CRAN 
+The version on CRAN and Github is 0.2.0. The package can be installed from CRAN 
 with the following command:
 
 ```r
@@ -29,8 +29,8 @@ the `{pak}` package:
 pak::pak("ingorohlfing/MMRcaseselection")
 ```
 
-The documentation of the package and examples can be found 
-[here](https://ingorohlfing.github.io/MMRcaseselection). 
+The documentation of the package and examples can be found on the 
+[package website](https://ingorohlfing.github.io/MMRcaseselection). 
 
 ***
 
