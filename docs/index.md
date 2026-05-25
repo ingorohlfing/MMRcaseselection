@@ -1,4 +1,4 @@
-# MMRcaseselection ![](reference/figures/MMRhex.png)
+# MMRcaseselection
 
 [![CRAN
 status](http://www.r-pkg.org/badges/version/MMRcaseselection)](https://cran.r-project.org/package=MMRcaseselection)
@@ -21,24 +21,24 @@ selection based on linear regression models (class `lm`).
 
 The package is [available on
 CRAN](https://cran.r-project.org/package=MMRcaseselection). The version
-on CRAN Github is 0.2.0. The package can be installed from CRAN with the
-following command.
+on CRAN and Github is 0.2.0. The package can be installed from CRAN with
+the following command:
 
 ``` r
 
 install.packages("MMRcaseselection")
 ```
 
-The package can be installed from Github with the following command.
+The package can be installed from Github with the following command
+using the [pak](https://pak.r-lib.org/) package:
 
 ``` r
 
 pak::pak("ingorohlfing/MMRcaseselection")
 ```
 
-The documentation of the package and examples can be found
-[here](https://ingorohlfing.github.io/MMRcaseselection/docs/). Please
-open an issue on Github if problems come up.
+The documentation of the package and examples can be found on the
+[package website](https://ingorohlfing.github.io/MMRcaseselection).
 
 ------------------------------------------------------------------------
 
