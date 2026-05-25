@@ -4,3 +4,5 @@
 ^docs$
 ^pkgdown$
 ^_config\.yml$
+^\.positai$
+^\.claude$
