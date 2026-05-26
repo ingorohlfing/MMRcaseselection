@@ -1,4 +1,4 @@
-# MMRcaseselection <!-- <img src="man/figures/MMRhex.png" height="200" align="right"> -->
+# MMRcaseselection <img src="man/figures/MMRhex.png" align="right" height="200" style="float:right; height:200px;"> 
 
 [![CRAN
 status](http://www.r-pkg.org/badges/version/MMRcaseselection)](https://cran.r-project.org/package=MMRcaseselection)

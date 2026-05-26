@@ -1,4 +1,4 @@
-# MMRcaseselection
+# MMRcaseselection ![](reference/figures/MMRhex.png)
 
 [![CRAN
 status](http://www.r-pkg.org/badges/version/MMRcaseselection)](https://cran.r-project.org/package=MMRcaseselection)
